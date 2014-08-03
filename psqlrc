@@ -1,0 +1,3 @@
+\set PROMPT1 '%x%n@%m %~%R%# '
+\set HISTFILE ~/.psql_history- :DBNAME
+\set AUTOCOMMIT off

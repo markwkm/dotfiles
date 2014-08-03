@@ -1,0 +1,4 @@
+Host *
+	ServerAliveInterval 240
+	ForwardX11 yes
+	ForwardX11Trusted yes
