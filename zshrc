@@ -50,14 +50,14 @@ zgit_unmerged() {
 prompt_command_ps1() {
 	local _PS1
 	_PS1="%{$fg[yellow]%}%{%}%n@%m%{%}"
-	if [ ${PGMODE} -eq 1 ]; then
+	if [ "x${PGMODE}" = "1" ]; then
 		_PS1="${_PS1}%{$fg[white]%}|%{$fg[green]%}${PGUSER}%{$fg[yellow]%}@%{$fg[green]%}${PGHOST}%{$fg[yellow]%}:%{$fg[green]%}${PGPORT}%{$fg[yellow]%}/%{$fg[green]%}${PGDATABASE}"
 	fi
 	if [ ! "x${STY}" = "x" ]; then
 		_PS1="${_PS1}%{$fg[yellow]%}%{$fg[white]%}|${STY}"
 	fi
 	_PS1="${_PS1} %{$fg[yellow]%}%#%{$reset_color%} "
-	if [ ${PGMODE} -eq 1 ]; then
+	if [ "x${PGMODE}" = "x1" ]; then
 		PGVERSION=`pg_config --version | awk '{print $2}'`
 		_PS1="(${PGVERSION})${_PS1}"
 	fi
