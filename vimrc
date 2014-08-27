@@ -12,6 +12,8 @@ Plugin 'Lokaltog/vim-distinguished'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-fugitive'
 Plugin 'bling/vim-airline'
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-notes'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -39,7 +41,7 @@ set t_Co=256
 
 set foldmethod=indent
 
-set guifont=Terminus\ 10
+set guifont=DejaVu\ Sans\ Mono\ 10
 
 if has("autocmd")
 	autocmd FileType python setlocal expandtab tw=79 ts=4 shiftwidth=4
@@ -48,6 +50,7 @@ if has("autocmd")
 	autocmd FileType sql setlocal expandtab tw=80 ts=4 shiftwidth=4 spell
 	autocmd FileType gitcommit setlocal tw=72 spell
 	autocmd FileType context setlocal tw=72
+	autocmd FileType notes setlocal expandtab spell
 endif
 
 let NERDTreeIgnore = ['\.pyc$', 'tags', 'cscope.files', 'cscope.out', '\.patch']
