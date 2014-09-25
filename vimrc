@@ -14,6 +14,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'bling/vim-airline'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-notes'
+Plugin 'altercation/vim-colors-solarized'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -37,10 +38,15 @@ set hlsearch
 :syntax on
 
 set t_Co=256
-:colorscheme distinguished
+set background=dark
+":colorscheme distinguished
+let g:solarized_termcolors=256
+:colorscheme solarized
 
+set noai
 set foldmethod=indent
 
+"set guifont=Terminus\ 10
 set guifont=DejaVu\ Sans\ Mono\ 10
 
 if has("autocmd")
