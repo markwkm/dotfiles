@@ -9,7 +9,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'Lokaltog/vim-distinguished'
-Plugin 'scrooloose/nerdtree'
+"Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-fugitive'
 Plugin 'bling/vim-airline'
 Plugin 'xolox/vim-misc'
@@ -43,13 +43,16 @@ set background=dark
 let g:solarized_termcolors=256
 :colorscheme solarized
 
+set inde=
 set noai
 set foldmethod=indent
+set shiftwidth=4
 
 "set guifont=Terminus\ 10
 set guifont=DejaVu\ Sans\ Mono\ 10
 
 if has("autocmd")
+	autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 	autocmd FileType python setlocal expandtab tw=79 ts=4 shiftwidth=4
 	autocmd FileType lua setlocal expandtab tw=79 ts=2 shiftwidth=2
 	autocmd FileType tex setlocal expandtab tw=79 ts=2 shiftwidth=2 spell
@@ -57,11 +60,17 @@ if has("autocmd")
 	autocmd FileType gitcommit setlocal tw=72 spell
 	autocmd FileType context setlocal tw=72
 	autocmd FileType notes setlocal expandtab spell
+	autocmd FileType r setlocal expandtab tw=79 spell
+	autocmd FileType text setlocal expandtab tw=79 spell
 endif
 
-let NERDTreeIgnore = ['\.pyc$', 'tags', 'cscope.files', 'cscope.out', '\.patch']
+let NERDTreeIgnore = ['\.pyc$', 'tags', 'cscope.files', 'cscope.out', '\.patch$', 'autom4te.cache', '\.o$', '\.log$', '_CPack_Packages', 'CMakeFiles', 'cmake_install.cmake', 'CMakeCache.txt', 'CPackConfig.cmake', 'install_manifest.txt', '\.war']
 " Total terminal witdh must be 120 cols to maintain 80 col width for files
-let g:NERDTreeWinSize = 39
+"let g:NERDTreeWinSize = 39
+
+" Total terminal witdh must be 110 cols to maintain 80 col width for files
+let g:NERDTreeWinSize = 26
+let g:NERDTreeDirArrows=0
 
 " airline
 "set noshowmode

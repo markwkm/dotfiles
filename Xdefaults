@@ -1,8 +1,16 @@
+!Xft.dpi:       160
+Xft.dpi:       96
+Xft.antialias: 1
+Xft.hinting:   1
+Xft.hintstyle: hintfull
+Xft.rgba:      rgb
 urxvt.termName: xterm
 !urxvt.font: -xos4-terminus-medium-r-normal--14-140-72-72-c-80-iso10646-1, \
 !            xft:AR PL Mingti2L Big5
 !urxvt.font: xft:AR PL Mingti2L Big5
-urxvt.font: xft:DejaVu\ Sans\ Mono:size=12
+urxvt.font: xft:DejaVu\ Sans\ Mono:pixelsize=16
+!urxvt.font: xft:DejaVu\ Sans\ Mono:size=12
+!urxvt.font: xft:DejaVu\ Sans\ Mono
 !urxvt.font: xft:Inconsolata:size=12
 !urxvt.font: xft:Terminus:size=12
 !urxvt.font: xft:Anonymous\ Pro:size=12
@@ -16,7 +24,7 @@ urxvt.font: xft:DejaVu\ Sans\ Mono:size=12
 urxvt.depth: 32
 urxvt.saveLines: 1000
 urxvt.scrollBar: False
-urxvt.geometry: 80x25
+urxvt.geometry: 81x26
 
 !urxvt.reverseVideo: True
 !urxvt.transparent: False
@@ -50,7 +58,8 @@ URxvt.perl-ext-common:default,matcher,tabbed
 !URxvt.perl-ext-common:default,clipboard,matcher,keyboard-select
 !URxvt.keysym.M-u:     perl:url-select:select_next
 !URxvt.url-launcher:   /usr/bin/firefox
-URxvt.url-launcher:   /usr/bin/chromium-browser
+!URxvt.url-launcher:   /usr/bin/firefox
+URxvt.url-launcher:   /usr/bin/firefox-bin
 URxvt.underlineURLs:  False
 !URxvt.matcher.button: 1 
 !URxvt.keysym.M-Escape:perl:keyboard-select:activate

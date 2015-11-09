@@ -89,3 +89,12 @@ case $TERM in
 		precmd () {print -Pn "\e]0;%n@%m: %~\a"}
 		;;
 esac
+
+if [ -f /usr/share/virtualenvwrapper/virtualenvwrapper.sh ]; then
+	source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
+fi
+
+export LESS="-r -x4"
+#export LC_ALL="en_US.utf-8"
+export LC_ALL="C"
+export LANG="$LC_ALL"

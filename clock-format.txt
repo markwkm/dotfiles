@@ -1,2 +1,2 @@
-%a %b %d %Y %r %Z
+%a %Y %b %d %I:%M %p %H:%M
 %F %R %z
