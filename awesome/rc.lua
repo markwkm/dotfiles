@@ -88,24 +88,42 @@ myawesomemenu = {
 }
 
 mybrowsermenu = {
-   { "Firefox", "/usr/bin/firefox-bin" },
-   { "Google Chrome", "/usr/bin/google-chrome-stable" }
+   { "Chromium", "/usr/bin/chromium", "/usr/share/icons/hicolor/16x16/apps/chromium-browser.png" },
+   { "Firefox", "/usr/bin/firefox-bin", "/usr/share/icons/hicolor/16x16/apps/firefox-bin.png" },
+   { "Google Chrome", "/usr/bin/google-chrome-stable", "/usr/share/icons/hicolor/16x16/apps/google-chrome.png" }
 }
 
 myemailmenu = {
-   { "Thunderbird", "/usr/bin/thunderbird-bin" }
+   { "Thunderbird", "/usr/bin/thunderbird-bin", "/usr/share/icons/hicolor/16x16/apps/thunderbird-bin-icon.png" }
 }
 
 myimmenu = {
-   { "Pidgin", "/usr/bin/pidgin" },
-   { "Skype", "/opt/bin/skype" }
+   { "Pidgin", "/usr/bin/pidgin", "/usr/share/icons/hicolor/16x16/apps/pidgin.png" },
+   { "Skype", "/opt/bin/skype", "/usr/share/icons/hicolor/16x16/apps/skype.png" }
+}
+
+myofficemenu = {
+   { "Dia", "/usr/bin/dia", "/usr/share/icons/hicolor/16x16/apps/dia.png" },
+   { "Gimp", "/usr/bin/gimp", "/usr/share/icons/hicolor/16x16/apps/gimp.png" },
+   { "Inkscape", "/usr/bin/inkscape", "/usr/share/icons/hicolor/16x16/apps/inkscape.png" },
+   { "LibreOffice", "/usr/bin/libreoffice", "/usr/share/icons/hicolor/16x16/apps/libreoffice-startcenter.png" },
+   { "LibreOffice Base", "/usr/bin/libreoffice --base", "/usr/share/icons/hicolor/16x16/apps/libreoffice-base.png" },
+   { "LibreOffice Calc", "/usr/bin/libreoffice --calc", "/usr/share/icons/hicolor/16x16/apps/libreoffice-calc.png" },
+   { "LibreOffice Draw", "/usr/bin/libreoffice --draw", "/usr/share/icons/hicolor/16x16/apps/libreoffice-draw.png" },
+   { "LibreOffice Impress", "/usr/bin/libreoffice --impress", "/usr/share/icons/hicolor/16x16/apps/libreoffice-impress.png" },
+   { "LibreOffice Math", "/usr/bin/libreoffice --math", "/usr/share/icons/hicolor/16x16/apps/libreoffice-math.png" },
+   { "LibreOffice Writer", "/usr/bin/libreoffice --writer", "/usr/share/icons/hicolor/16x16/apps/libreoffice-writer.png" }
 }
 
 mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
-                                    { "browsers", mybrowsermenu, beautiful.awesome_icon },
-                                    { "email", myemailmenu, beautiful.awesome_icon },
-                                    { "messaging", myimmenu, beautiful.awesome_icon },
-                                    { "open terminal", terminal }
+                                    { "browsers", mybrowsermenu },
+                                    { "email", myemailmenu },
+                                    { "messaging", myimmenu },
+                                    { "office", myofficemenu },
+                                    { "virt-manager", "sudo /usr/bin/virt-manager", "/usr/share/icons/hicolor/16x16/apps/virt-manager.png" },
+                                    { "open folder", "/usr/bin/xfe" },
+                                    { "open terminal", terminal },
+                                    { "open network config", "/usr/bin/wicd-gtk", "/usr/share/icons/hicolor/16x16/apps/wicd-gtk.png" }
                                   }
                         })
 
