@@ -47,21 +47,24 @@ set inde=
 set noai
 set foldmethod=indent
 set shiftwidth=4
+set textwidth=79
+let &colorcolumn=join(range(80,999),",")
+set paste
 
 "set guifont=Terminus\ 10
 set guifont=DejaVu\ Sans\ Mono\ 10
 
 if has("autocmd")
 	autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-	autocmd FileType python setlocal expandtab tw=79 ts=4 shiftwidth=4
-	autocmd FileType lua setlocal expandtab tw=79 ts=2 shiftwidth=2
-	autocmd FileType tex setlocal expandtab tw=79 ts=2 shiftwidth=2 spell
-	autocmd FileType sql setlocal expandtab tw=80 ts=4 shiftwidth=4 spell
+	autocmd FileType python setlocal expandtab ts=4 shiftwidth=4
+	autocmd FileType lua setlocal expandtab ts=2 shiftwidth=2
+	autocmd FileType tex setlocal expandtab ts=2 shiftwidth=2 spell
+	autocmd FileType sql setlocal expandtab ts=4 shiftwidth=4 spell
 	autocmd FileType gitcommit setlocal tw=72 spell
-	autocmd FileType context setlocal tw=72
+	autocmd FileType context setlocal tw=72 spell
 	autocmd FileType notes setlocal expandtab spell
-	autocmd FileType r setlocal expandtab tw=79 spell
-	autocmd FileType text setlocal expandtab tw=79 spell
+	autocmd FileType r setlocal expandtab spell
+	autocmd FileType text setlocal expandtab spell
 endif
 
 let NERDTreeIgnore = ['\.pyc$', 'tags', 'cscope.files', 'cscope.out', '\.patch$', 'autom4te.cache', '\.o$', '\.log$', '_CPack_Packages', 'CMakeFiles', 'cmake_install.cmake', 'CMakeCache.txt', 'CPackConfig.cmake', 'install_manifest.txt', '\.war']

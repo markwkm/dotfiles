@@ -95,6 +95,5 @@ if [ -f /usr/share/virtualenvwrapper/virtualenvwrapper.sh ]; then
 fi
 
 export LESS="-r -x4"
-#export LC_ALL="en_US.utf-8"
 export LC_ALL="C"
-export LANG="$LC_ALL"
+export LANG="en_US.utf-8"
