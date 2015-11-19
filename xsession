@@ -6,7 +6,8 @@
 ~/.screenlayout/home-hdmi-retina-gentoo.sh &
 
 setxkbmap -layout us -variant altgr-intl
-volti &
+eval `ssh-agent`
+#volti &
 
 exec awesome
 #openbox-session
