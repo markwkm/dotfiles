@@ -95,5 +95,8 @@ if [ -f /usr/share/virtualenvwrapper/virtualenvwrapper.sh ]; then
 fi
 
 export LESS="-r -x4"
+#export LC_ALL="C"
 export LC_ALL="C"
 export LANG="en_US.utf-8"
+
+export GTK2_RC_FILES="$HOME/.gtkrc-2.0"

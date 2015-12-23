@@ -118,6 +118,7 @@ myimmenu = {
 myofficemenu = {
    { "Dia", "/usr/bin/dia", "/usr/share/icons/hicolor/16x16/apps/dia.png" },
    { "Gimp", "/usr/bin/gimp", "/usr/share/icons/hicolor/16x16/apps/gimp.png" },
+   { "Gummi", "/usr/bin/gummi", "/usr/share/gummi/icons/gummi.png" },
    { "Inkscape", "/usr/bin/inkscape", "/usr/share/icons/hicolor/16x16/apps/inkscape.png" },
    { "LibreOffice", "/usr/bin/libreoffice", "/usr/share/icons/hicolor/16x16/apps/libreoffice-startcenter.png" },
    { "LibreOffice Base", "/usr/bin/libreoffice --base", "/usr/share/icons/hicolor/16x16/apps/libreoffice-base.png" },
@@ -134,6 +135,7 @@ mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesom
                                     { "messaging", myimmenu },
                                     { "office", myofficemenu },
                                     { "virt-manager", "sudo /usr/bin/virt-manager", "/usr/share/icons/hicolor/16x16/apps/virt-manager.png" },
+                                    { "NEdit", "/usr/bin/nedit" },
                                     { "open folder", "/usr/bin/xfe" },
                                     { "open terminal", terminal },
                                     { "open network config", "/usr/bin/wicd-gtk", "/usr/share/icons/hicolor/16x16/apps/wicd-gtk.png" },
