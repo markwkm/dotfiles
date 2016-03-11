@@ -15,6 +15,9 @@ Plugin 'bling/vim-airline'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-notes'
 Plugin 'altercation/vim-colors-solarized'
+"Plugin 'vim-scripts/SQLUtilities'
+Plugin 'jphustman/SQLUtilities'
+Plugin 'vim-scripts/Align'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -31,6 +34,7 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
+set enc=utf-8
 set nosmartindent
 set ts=4
 
@@ -51,6 +55,9 @@ set textwidth=79
 let &colorcolumn=join(range(80,999),",")
 set paste
 
+let g:notes_unicode_enabled = 0
+let g:notes_smart_quotes = 0
+
 "set guifont=Terminus\ 10
 set guifont=DejaVu\ Sans\ Mono\ 10
 
@@ -60,7 +67,7 @@ if has("autocmd")
 	autocmd FileType lua setlocal expandtab ts=2 shiftwidth=2
 	autocmd FileType tex setlocal expandtab ts=2 shiftwidth=2 spell
 	autocmd FileType sql setlocal expandtab ts=4 shiftwidth=4 spell
-	autocmd FileType gitcommit setlocal tw=72 spell
+	autocmd FileType gitcommit setlocal tw=72 colorcolumn=72 spell
 	autocmd FileType context setlocal tw=72 spell
 	autocmd FileType notes setlocal expandtab spell
 	autocmd FileType r setlocal expandtab spell

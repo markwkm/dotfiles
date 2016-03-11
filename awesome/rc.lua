@@ -103,7 +103,7 @@ myawesomemenu = {
 mybrowsermenu = {
    { "Chromium", "/usr/bin/chromium", "/usr/share/icons/hicolor/16x16/apps/chromium-browser.png" },
    { "Firefox", "/usr/bin/firefox-bin", "/usr/share/icons/hicolor/16x16/apps/firefox-bin.png" },
-   { "Google Chrome", "/usr/bin/google-chrome-stable", "/usr/share/icons/hicolor/16x16/apps/google-chrome.png" }
+   { "Google Chrome", "/usr/bin/google-chrome-stable --incognito", "/usr/share/icons/hicolor/16x16/apps/google-chrome.png" }
 }
 
 myemailmenu = {
