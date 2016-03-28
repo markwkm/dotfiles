@@ -84,8 +84,11 @@ RPS1='$(prompt_command_rps1)'
 #exec 2>>(while read line; do
 #	print '\e[91m'${(q)line}'\e[0m' > /dev/tty; print -n $'\0'; done &)
 
+export TERM=rxvt-unicode-256color
+export COLORTERM=rxvt-unicode-256color
+
 case $TERM in
-	xterm*|*rxvt)
+	xterm*|rxvt*)
 		precmd () {print -Pn "\e]0;%n@%m: %~\a"}
 		;;
 esac
@@ -96,10 +99,13 @@ fi
 
 export LESS="-r -x4"
 #export LC_ALL="C"
-export LC_ALL="C"
+export LC_ALL="en_US.utf-8"
 export LANG="en_US.utf-8"
 
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 
 # For awesome
-wmname LG3D
+which wmname > /dev/null 2>&1
+if [ $? -eq 0 ]; then
+	wmname LG3D
+fi
