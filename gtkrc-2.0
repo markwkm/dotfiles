@@ -75,4 +75,11 @@ style "default"
   base[SELECTED]  = "#ffcccc"
 }
 
+style "font"
+{
+  font_name = "DejaVu Sans 10"
+}
+widget_class "*" style "font"
+gtk-font-name = "DejaVu Sans Mono 10"
+
 class "GtkWidget" style "default"
