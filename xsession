@@ -1,15 +1,16 @@
-export BROWSER="google-chrome-stable"
-#monitor=`xrandr | grep -i edp | cut -d " " -f 1`
-#xrandr --newmode  "1440x900_60.00"  106.50  1440 1528 1672 1904  900 903 909 934 -hsync +vsync
-#xrandr --addmode $monitor 1440x900_60.00
-#xrandr --output $monitor --mode 1440x900_60.00
+export LC_ALL="en_US.utf-8"
+export LANG="en_US.utf-8"
+export TERM=rxvt-unicode-256color
+export COLORTERM=rxvt-unicode-256color
 
-~/.screenlayout/home-hdmi-retina-gentoo.sh &
+export BROWSER="/usr/bin/firefox-bin"
+
+~/.screenlayout/home-2hdmi.sh &
 
 setxkbmap -layout us -variant altgr-intl
 eval `ssh-agent`
-#volti &
 
-exec awesome
+exec i3
+#exec awesome
 #openbox-session
 #startlxde
