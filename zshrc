@@ -51,10 +51,10 @@ prompt_command_ps1() {
 	local _PS1
 	_PS1="%{$fg[yellow]%}%{%}%n@%m%{%}"
 	if [ "x${PGMODE}" = "1" ]; then
-		_PS1="${_PS1}%{$fg[white]%}|%{$fg[green]%}${PGUSER}%{$fg[yellow]%}@%{$fg[green]%}${PGHOST}%{$fg[yellow]%}:%{$fg[green]%}${PGPORT}%{$fg[yellow]%}/%{$fg[green]%}${PGDATABASE}"
+		_PS1="${_PS1}%{$fg[brwhite]%}|%{$fg[green]%}${PGUSER}%{$fg[yellow]%}@%{$fg[green]%}${PGHOST}%{$fg[yellow]%}:%{$fg[green]%}${PGPORT}%{$fg[yellow]%}/%{$fg[green]%}${PGDATABASE}"
 	fi
 	if [ ! "x${STY}" = "x" ]; then
-		_PS1="${_PS1}%{$fg[yellow]%}%{$fg[white]%}|${STY}"
+		_PS1="${_PS1}%{$fg[yellow]%}%{$fg[brwhite]%}|${STY}"
 	fi
 	_PS1="${_PS1} %{$fg[yellow]%}%#%{$reset_color%} "
 	if [ "x${PGMODE}" = "x1" ]; then
@@ -84,8 +84,8 @@ RPS1='$(prompt_command_rps1)'
 #exec 2>>(while read line; do
 #	print '\e[91m'${(q)line}'\e[0m' > /dev/tty; print -n $'\0'; done &)
 
-export TERM=rxvt-unicode-256color
-export COLORTERM=rxvt-unicode-256color
+#export TERM=rxvt-unicode-256color
+#export COLORTERM=rxvt-unicode-256color
 
 case $TERM in
 	xterm*|rxvt*)
@@ -102,7 +102,7 @@ export LESS="-r -x4"
 export LC_ALL="en_US.utf-8"
 export LANG="en_US.utf-8"
 
-export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
+export GTK2_RC_FILES="$HOME/.gtkrc-2.0-solarized-dark"
 
 # For awesome
 which wmname > /dev/null 2>&1

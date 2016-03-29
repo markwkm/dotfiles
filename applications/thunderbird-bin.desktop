@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Mozilla Thunderbird (solarized)
+Comment=Mail & News Reader
+Exec=/home/mark/.bin/thunderbird-bin
+Icon=thunderbird-bin-icon
+Terminal=false
+Type=Application
+Categories=Office;Network;Email;
+MimeType=x-scheme-handler/mailto;
