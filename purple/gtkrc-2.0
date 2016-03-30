@@ -1,0 +1,37 @@
+# This file automatically written by the Pidgin GTK+ Theme Control plugin.
+# Any changes to this file will be overwritten by the plugin when told to
+# write the settings again.
+# The FAQ (http://developer.pidgin.im/wiki/FAQ) contains some further examples
+# of possible pidgin gtkrc settings.
+gtk-font-name = "DejaVu Sans 10"
+style "purplerc_style"
+{
+	GtkIMHtml::hyperlink-color = "#2AA198"
+	GtkIMHtml::hyperlink-visited-color = "#6C71C4"
+	GtkIMHtml::send-name-color = "#268BD2"
+	GtkIMHtml::receive-name-color = "#D33682"
+	GtkIMHtml::highlight-name-color = "#859900"
+	GtkIMHtml::action-name-color = "#859900"
+	GtkIMHtml::typing-notification-color = "#859900"
+}
+widget_class "*" style "purplerc_style"
+style "*pidgin_conv_entry_style"
+{
+	font_name = "DejaVu Sans Mono 10"
+}
+widget "*pidgin_conv_entry" style "*pidgin_conv_entry_style"
+style "*pidgin_conv_imhtml_style"
+{
+	font_name = "DejaVu Sans Mono 12"
+}
+widget "*pidgin_conv_imhtml" style "*pidgin_conv_imhtml_style"
+style "*pidgin_request_imhtml_style"
+{
+	font_name = "DejaVu Sans 10"
+}
+widget "*pidgin_request_imhtml" style "*pidgin_request_imhtml_style"
+style "*pidgin_notify_imhtml_style"
+{
+	font_name = "DejaVu Sans 10"
+}
+widget "*pidgin_notify_imhtml" style "*pidgin_notify_imhtml_style"
