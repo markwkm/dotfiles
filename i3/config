@@ -40,7 +40,8 @@ bindsym $mod+Shift+q kill
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+#bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu='rofi -i -fuzzy -dmenu -modi drun'
 
 # change focus
 bindsym $mod+j focus left
@@ -157,20 +158,20 @@ bindsym XF86AudioLowerVolume exec amixer sset Master 5%- unmute
 bindsym XF86AudioMute exec amixer sset Master toggle
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20
 
 set $mode_system System (l) lock, (e) logout, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
-    bindsym l exec --no-startup-id i3exit lock, mode "default"
-    bindsym e exec --no-startup-id i3exit logout, mode "default"
-    bindsym s exec --no-startup-id i3exit suspend, mode "default"
-    #bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
-    bindsym Shift+s exec --no-startup-id sudo shutdown -h 0
+        bindsym l exec --no-startup-id i3exit lock, mode "default"
+        bindsym e exec --no-startup-id i3exit logout, mode "default"
+        bindsym r exec --no-startup-id sudo reboot
+        bindsym s exec --no-startup-id i3exit suspend, mode "default"
+        bindsym Shift+s exec --no-startup-id sudo shutdown -h 0
 
-    # back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
 }
 bindsym $mod+Shift+s mode "$mode_system"
 
@@ -179,6 +180,19 @@ bindsym $mod+Shift+s mode "$mode_system"
 bar {
         status_command i3status --config ~/.i3/i3status.conf
         tray_output eDP1
+        colors {
+                background #002b36
+                statusline #fdf6e3
+                separator #2aa198
+
+                #focused_workspace  #4c7899 #285577 #ffffff
+                #active_workspace   #333333 #5f676a #ffffff
+                #inactive_workspace #333333 #222222 #888888
+                #urgent_workspace   #2f343a #900000 #ffffff
+                #binding_mode       #2f343a #900000 #ffffff
+        }
 }
 
-exec --no-startup-id launchy
+exec_always --no-startup-id xrdb ~/.Xdefaults
+exec --no-startup-id nitrogen --restore
+#exec --no-startup-id launchy
