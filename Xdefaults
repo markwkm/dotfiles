@@ -71,3 +71,5 @@ nedit*text.foreground: #657b83
 nedit*text.cursorForeground: #586e75
 nedit*text.highlightBackground: #586e75
 nedit*text.highlightForeground: #93a1a1
+
+rofi.font: DejaVu Sans 16
