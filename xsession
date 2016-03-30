@@ -1,7 +1,6 @@
 export LC_ALL="en_US.utf-8"
 export LANG="en_US.utf-8"
-export TERM=rxvt-unicode-256color
-export COLORTERM=rxvt-unicode-256color
+export GTK2_RC_FILES="$HOME/.gtkrc-2.0-solarized-dark"
 
 export BROWSER="/usr/bin/firefox-bin"
 
