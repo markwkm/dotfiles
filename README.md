@@ -1,6 +1,15 @@
 dotfiles
 ========
 
+i3
+==
+
+Use [nitrogen](http://projects.l3ib.org/nitrogen/) to set background image.
+
+Use [rofi](https://davedavenport.github.io/rofi/) with dmenu.
+
+Use [compton](https://github.com/chjj/compton) for X compositor.
+
 Thunderbird
 ===========
 

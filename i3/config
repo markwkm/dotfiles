@@ -41,7 +41,7 @@ bindsym $mod+Shift+q kill
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 #bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu='rofi -i -fuzzy -dmenu -modi drun'
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu='rofi -i -fuzzy -dmenu -modi drun -opacity 75 -p ".oO "'
 
 # change focus
 bindsym $mod+j focus left
@@ -179,6 +179,8 @@ bindsym $mod+Shift+s mode "$mode_system"
 # finds out, if available)
 bar {
         status_command i3status --config ~/.i3/i3status.conf
+        #status_command conky
+        #status_command i3status --config ~/.i3/i3status.conf | dzen2 -ta r
         tray_output eDP1
         colors {
                 background #002b36
@@ -193,6 +195,7 @@ bar {
         }
 }
 
-exec_always --no-startup-id xrdb ~/.Xdefaults
-exec --no-startup-id nitrogen --restore
+exec_always xrdb ~/.Xdefaults
+exec_always nitrogen --restore
+exec_always compton -f
 #exec --no-startup-id launchy
