@@ -44,7 +44,8 @@ bindsym $mod+Shift+q kill
 # installed.
 #bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 bindsym $mod+d exec --no-startup-id i3-dmenu-desktop \
-        --dmenu='rofi -i -fuzzy -dmenu -modi drun -opacity 75 -p ".oO "'
+                --dmenu='rofi -i -fuzzy -dmenu -modi drun -opacity 75 -p ".oO "'
+bindsym XF86LaunchA exec --no-startup-id rofi -show window -opacity 75
 
 # change focus
 bindsym $mod+j focus left
@@ -182,8 +183,6 @@ bindsym $mod+Shift+s mode "$mode_system"
 # finds out, if available)
 bar {
         status_command i3status --config ~/.i3/i3status.conf
-        #status_command conky
-        #status_command i3status --config ~/.i3/i3status.conf | dzen2 -ta r
         tray_output eDP1
         colors {
                 background #002b36
@@ -202,8 +201,8 @@ bar {
 client.focused          #268bd2 #268bd2 #fdf6e3 #cb4b16   #268bd2
 client.focused_inactive #839496 #839496 #eee8d5 #cb4b16   #839496
 client.unfocused        #073642 #073642 #93a1a1 #cb4b16   #073642
-client.urgent           #dc322f #dc322f #fdf6e3 #dc322f   #dc322f
-client.placeholder      #b58900 #b58900 #fdf6e3 #b58900   #b58900
+client.urgent           #dc322f #dc322f #fdf6e3 #cb4b16   #dc322f
+client.placeholder      #b58900 #b58900 #fdf6e3 #cb4b16   #b58900
 
 client.background       #859900
 
