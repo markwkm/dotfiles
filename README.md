@@ -4,22 +4,22 @@ dotfiles
 Software
 --------
 
-File manager: xfe
-Image viewer: feh
-LaTeX editor: gummi
-PDF form filler: evince
-PDF presenter: pdfpc
-PDF viewer: zathura
-Shell: zsh
-Terminal: rxvt-unicode
-Text editor: vi
-Window manager: i3
+* File manager: xfe
+* Image viewer: feh
+* LaTeX editor: gummi
+* PDF form filler: evince
+* PDF presenter: pdfpc
+* PDF viewer: zathura
+* Shell: zsh
+* Terminal: rxvt-unicode
+* Text editor: vi
+* Window manager: i3
 
 Environment
 -----------
 
-Color scheme: Solarized
-Key bindings: vi
+* Color scheme: Solarized
+* Key bindings: vi
 
 i3
 --
