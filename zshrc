@@ -47,9 +47,16 @@ zgit_unmerged() {
 	fi
 }
 
+chpwd() {
+	print -Pn "\e]0;%n@%m: %~\a"
+}
+
 precmd() {
 	print -Pn "\a"
-	print -Pn "\e]0;%n@%m: %~\a"
+}
+
+prompt_command_ps1_min() {
+	echo "%{$fg[yellow]%}%{%}%{%}"
 }
 
 prompt_command_ps1() {
@@ -104,3 +111,5 @@ which wmname > /dev/null 2>&1
 if [ $? -eq 0 ]; then
 	wmname LG3D
 fi
+
+chpwd
