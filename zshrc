@@ -47,6 +47,11 @@ zgit_unmerged() {
 	fi
 }
 
+precmd() {
+	print -Pn "\a"
+	print -Pn "\e]0;%n@%m: %~\a"
+}
+
 prompt_command_ps1() {
 	local _PS1
 	_PS1="%{$fg[yellow]%}%{%}%n@%m%{%}"
@@ -61,7 +66,7 @@ prompt_command_ps1() {
 		PGVERSION=`pg_config --version | awk '{print $2}'`
 		_PS1="(${PGVERSION})${_PS1}"
 	fi
-	echo ${_PS1}
+	echo "${_PS1}"
 }
 
 prompt_command_rps1() {
@@ -73,32 +78,22 @@ prompt_command_rps1() {
 		_RPS1="${_RPS1}%{$fg[yellow]%})"
 	fi
 	_RPS1="${_RPS1}%{$fg[yellow]%}[%{$fg[green]%}%{%}%~%{%}%{$fg[yellow]%}]%{$reset_color%}"
-	echo ${_RPS1}
+	echo "${_RPS1}"
 }
 
 PS1='$(prompt_command_ps1)'
-RPS1='$(prompt_command_rps1)'
+#RPS1='$(prompt_command_rps1)'
 
 # Color sterr
 # This doesn't play nice with some programs. i.e. sudo su -
 #exec 2>>(while read line; do
 #	print '\e[91m'${(q)line}'\e[0m' > /dev/tty; print -n $'\0'; done &)
 
-#export TERM=rxvt-unicode-256color
-#export COLORTERM=rxvt-unicode-256color
-
-case $TERM in
-	xterm*|rxvt*)
-		precmd () {print -Pn "\e]0;%n@%m: %~\a"}
-		;;
-esac
-
 if [ -f /usr/share/virtualenvwrapper/virtualenvwrapper.sh ]; then
 	source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
 fi
 
 export LESS="-r -x4"
-#export LC_ALL="C"
 export LC_ALL="en_US.utf-8"
 export LANG="en_US.utf-8"
 
