@@ -63,15 +63,12 @@ zgit_unmerged() {
 	fi
 }
 
-chpwd() {
+precmd() {
 	local _GITINFO
 	if junk=$(git branch 2> /dev/null); then
 		_GITINFO=" $(zgit_branch_title)"
 	fi
 	print -Pn "\e]0;%n@%m: %~$_GITINFO\a"
-}
-
-precmd() {
 	print -Pn "\a"
 }
 
@@ -151,5 +148,3 @@ fi
 
 alias ls="ls --color=auto"
 eval `dircolors ~/.dir_colors`
-
-chpwd
