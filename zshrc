@@ -149,4 +149,7 @@ if [ $? -eq 0 ]; then
 	wmname LG3D
 fi
 
+alias ls="ls --color=auto"
+eval `dircolors ~/.dir_colors`
+
 chpwd
