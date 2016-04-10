@@ -1,4 +1,4 @@
-Xft.dpi:       96
+Xft.dpi:       120
 Xft.antialias: 1
 Xft.hinting:   1
 Xft.hintstyle: hintfull
@@ -10,12 +10,15 @@ urxvt.termName: xterm
 !urxvt.font: xft:DejaVu\ Sans\ Mono:size=12
 !urxvt.font: xft:DejaVu\ Sans\ Mono:bold:size=12
 !urxvt.font: xft:Inconsolata:size=14
-urxvt.font: xft:Inconsolata:bold:size=14
+!urxvt.font: xft:Inconsolata:bold:size=14
 !urxvt.font: xft:Terminus:size=14
 !urxvt.font: xft:Droid\ Sans\ Mono:size=12
 !urxvt.font: xft:Anonymous Pro:size=14
 !urxvt.font: xft:Ubuntu Mono:size=14
 !urxvt.font: xft:AR PL Mingti2L Big5
+!urxvt.font: xft:Source Code Pro:size=10
+!urxvt.font: xft:Source Code Pro:Semi-Bold:size=10
+urxvt.font: xft:M+ 1mn:medium:size=10
 
 urxvt.depth: 32
 urxvt.saveLines: 1000
@@ -72,4 +75,4 @@ nedit*text.cursorForeground: #586e75
 nedit*text.highlightBackground: #586e75
 nedit*text.highlightForeground: #93a1a1
 
-rofi.font: DejaVu Sans 16
+rofi.font: M+ 1m Medium 16

@@ -57,7 +57,7 @@ set paste
 let g:notes_unicode_enabled = 0
 let g:notes_smart_quotes = 0
 
-set guifont=Inconsolata\ Bold\ 12
+set guifont=M+\ 1mn\ Medium\ 10
 
 if has("autocmd")
 	autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o

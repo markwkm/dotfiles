@@ -26,6 +26,8 @@ Fonts
 
 * DejaVu
 * Inconsolata
+* Source Pro
+* M+
 
 i3
 --
