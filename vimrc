@@ -43,7 +43,6 @@ set hlsearch
 
 set t_Co=256
 set background=dark
-":colorscheme distinguished
 let g:solarized_termcolors=256
 :colorscheme solarized
 
@@ -58,8 +57,7 @@ set paste
 let g:notes_unicode_enabled = 0
 let g:notes_smart_quotes = 0
 
-"set guifont=Terminus\ 10
-set guifont=DejaVu\ Sans\ Mono\ 10
+set guifont=Inconsolata\ Bold\ 12
 
 if has("autocmd")
 	autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
@@ -79,7 +77,7 @@ let NERDTreeIgnore = ['\.pyc$', 'tags', 'cscope.files', 'cscope.out', '\.patch$'
 "let g:NERDTreeWinSize = 39
 
 " Total terminal witdh must be 110 cols to maintain 80 col width for files
-let g:NERDTreeWinSize = 26
+let g:NERDTreeWinSize=26
 let g:NERDTreeDirArrows=0
 
 " airline

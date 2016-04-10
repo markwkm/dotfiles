@@ -21,6 +21,12 @@ Environment
 * Color scheme: Solarized
 * Key bindings: vi
 
+Fonts
+-----
+
+* DejaVu
+* Inconsolata
+
 i3
 --
 
