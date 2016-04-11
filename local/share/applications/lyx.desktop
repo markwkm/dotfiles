@@ -1,0 +1,15 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=LyX (solarized)
+GenericName=Document Processor
+Comment=High level LaTeX frontend
+Keywords=WYSIWYG;WYSIWYM;TeX;LaTeX;GUI;frontend;editor;
+Exec=/home/markwkm/.bin/lyx %F
+TryExec=lyx
+Icon=lyx
+StartupNotify=false
+StartupWMClass=Lyx
+Terminal=false
+Categories=Office;WordProcessor;Qt;
+MimeType=text/x-lyx;application/x-lyx;

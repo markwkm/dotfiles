@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Mozilla Thunderbird (solarized)
 Comment=Mail & News Reader
-Exec=/home/mark/.bin/thunderbird-bin
+Exec=/home/markwkm/.bin/thunderbird-bin
 Icon=thunderbird-bin-icon
 Terminal=false
 Type=Application

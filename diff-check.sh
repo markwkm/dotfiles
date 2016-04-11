@@ -15,6 +15,11 @@ heading() {
 }
 
 show_diff() {
+	diff $OBJ $HOME/.$OBJ > /dev/null
+	if [ $? -eq 0 ]; then
+		return
+	fi
+
 	which colordiff > /dev/null 2>&1
 	if [ $? -eq 0 ]; then
 		DIFF="colordiff"

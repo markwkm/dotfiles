@@ -1,7 +1,7 @@
 [Desktop Entry]
-Name=Mozilla Firefox (bin)
+Name=Mozilla Firefox (solarized)
 Comment=Mozilla Firefox Web Browser
-Exec=/home/mark/.bin/firefox-bin %u
+Exec=/home/markwkm/.bin/firefox-bin %u
 Icon=firefox-bin
 Terminal=false
 Type=Application
