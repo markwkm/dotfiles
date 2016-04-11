@@ -2,7 +2,6 @@
 
 DOTFILES=`dirname $BASH_SOURCE`
 LISTING=`ls $DOTFILES | grep -v $(basename $0) | grep -v README.md | grep -v LICENSE | grep -v misc`
-echo $LISTING
 
 heading() {
 	local BORDER=""
@@ -15,12 +14,15 @@ heading() {
 }
 
 show_diff() {
-	diff $OBJ $HOME/.$OBJ > /dev/null
+	local FILE=$1
+
+	diff -s $HOME/.$FILE $DOTFILES/$FILE > /dev/null 2>&1
 	if [ $? -eq 0 ]; then
 		return
 	fi
 
 	which colordiff > /dev/null 2>&1
+	heading "-" ".$FILE"
 	if [ $? -eq 0 ]; then
 		DIFF="colordiff"
 	else
@@ -34,13 +36,12 @@ for OBJ in $LISTING; do
 	if [ ! -f "$HOME/.$OBJ" ] && [ ! -d "$HOME/.$OBJ" ]; then
 		continue
 	fi
-	diff $OBJ $HOME/.$OBJ > /dev/null
+
+	diff -s $HOME/.$OBJ $DOTFILES/$OBJ > /dev/null 2>&1
 	if [ $? -ne 0 ]; then
-		heading "=" ".$OBJ"
 		if [ -d "$HOME/.$OBJ" ]; then
 			for FILE in `(cd $DOTFILES && find $OBJ -type f -print)` ; do
 				if [ -f "$HOME/.$FILE" ]; then
-					heading "-" ".$FILE"
 					show_diff $FILE
 				fi
 			done
