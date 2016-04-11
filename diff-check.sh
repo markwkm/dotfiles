@@ -4,13 +4,28 @@ DOTFILES=`dirname $BASH_SOURCE`
 LISTING=`ls $DOTFILES | grep -v $(basename $0) | grep -v README.md | grep -v LICENSE | grep -v misc`
 
 heading() {
-	local BORDER=""
-	for i in `seq 2 $(echo $2 | wc -m)`; do
-		BORDER="$BORDER$1"
+	local BORDER1=""
+	local SPACE=""
+
+	LENGTH=`echo $2 | wc -m`
+	MIDDLE=$(( ($WIDTH + 1) / 2 - $LENGTH ))
+	for i in `seq 1 $LENGTH`; do
+		BORDER1="$BORDER1$1"
 	done
-	echo $BORDER
-	echo $2
-	echo $BORDER
+	local BORDER2="$BORDER1"
+	for i in `seq 1 $( echo $DOTFILES | wc -m )`; do
+		BORDER2="$BORDER2$1"
+	done
+
+	echo -n $BORDER1
+	echo -ne "\033[${MIDDLE}C"
+	echo $BORDER2
+	echo -n ".$2"
+	echo -ne "\033[${MIDDLE}C"
+	echo "$DOTFILES/$2"
+	echo -n $BORDER1
+	echo -ne "\033[${MIDDLE}C"
+	echo $BORDER2
 }
 
 show_diff() {
@@ -22,13 +37,13 @@ show_diff() {
 	fi
 
 	which colordiff > /dev/null 2>&1
-	heading "-" ".$FILE"
+	WIDTH=`tput cols`
+	heading "-" "$FILE"
 	if [ $? -eq 0 ]; then
 		DIFF="colordiff"
 	else
 		DIFF="diff"
 	fi
-	WIDTH=`tput cols`
 	$DIFF -y -W $WIDTH --suppress-common-lines $HOME/.$FILE $DOTFILES/$FILE
 }
 
