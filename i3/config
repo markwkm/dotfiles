@@ -217,6 +217,7 @@ client.background       #859900
 
 no_focus [class=".*"]
 for_window [class=".*"] title_format "%class: %title"
+for_window [class="Cssh"] floating enable
 
 exec_always --no-startup-id xrdb ~/.Xdefaults
 exec_always --no-startup-id nitrogen --restore
