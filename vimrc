@@ -82,4 +82,5 @@ let g:NERDTreeDirArrows=0
 
 " airline
 "set noshowmode
-set laststatus=2
+" Move the laststatus line if using tabs in urxvt.
+"set laststatus=2
