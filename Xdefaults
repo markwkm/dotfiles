@@ -29,7 +29,10 @@ urxvt.cursorBlink: True
 urxvt.cursorUnderline: True
 
 urxvt.transparent: False
-urxvt.background: [88]#002b36
+! Use transset because [] notation causes strange behavior with sudo vi and
+! urxvt
+!urxvt.background: [88]#002b36
+urxvt.background: #002b36
 
 *foreground: #657b83
 *background: #002b36
@@ -63,7 +66,7 @@ URxvt.perl-ext-common:default,matcher
 !URxvt.keysym.M-u:     perl:url-select:select_next
 URxvt.url-launcher:   /usr/bin/firefox-bin
 URxvt.underlineURLs:  False
-!URxvt.matcher.button: 1 
+!URxvt.matcher.button: 1
 !URxvt.keysym.M-Escape:perl:keyboard-select:activate
 !URxvt.keysym.M-c:     perl:clipboard:copy
 !URxvt.keysym.M-v:     perl:clipboard:paste
