@@ -1,3 +1,4 @@
+export TERM=xterm-256color
 export LESS="-r -x4"
 export LC_ALL="en_US.utf-8"
 export LANG="en_US.utf-8"
