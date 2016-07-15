@@ -1,0 +1,8 @@
+set folder_format = "%t %N %f"
+set index_format = "%4C %Z %[%Y-%b-%d %H:%M %p %Z] %-20.20L %X %s"
+set mask=".*"
+set mbox_type=Maildir
+set sort = threads  
+                                                                  
+ignore *
+unignore from date subject to cc bcc
