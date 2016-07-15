@@ -61,14 +61,15 @@ set guifont=M+\ 1mn\ Medium\ 10
 
 if has("autocmd")
 	autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-	autocmd FileType python setlocal expandtab ts=4 shiftwidth=4
-	autocmd FileType lua setlocal expandtab ts=2 shiftwidth=2
-	autocmd FileType tex setlocal expandtab ts=2 shiftwidth=2 spell
-	autocmd FileType sql setlocal expandtab ts=4 shiftwidth=4 spell
-	autocmd FileType gitcommit setlocal tw=72 colorcolumn=72 spell
 	autocmd FileType context setlocal tw=72 spell
+	autocmd FileType gitcommit setlocal tw=72 colorcolumn=72 spell
+	autocmd FileType lua setlocal expandtab ts=2 shiftwidth=2
+	autocmd FileType mail setlocal tw=72 colorcolumn=72 expandtab spell
 	autocmd FileType notes setlocal expandtab spell
+	autocmd FileType python setlocal expandtab ts=4 shiftwidth=4
 	autocmd FileType r setlocal expandtab spell
+	autocmd FileType sql setlocal expandtab ts=4 shiftwidth=4 spell
+	autocmd FileType tex setlocal expandtab ts=2 shiftwidth=2 spell
 	autocmd FileType text setlocal expandtab spell
 endif
 
