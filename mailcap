@@ -1,0 +1,4 @@
+application/pdf; /home/mark/.bin/mutt-launch %s zathura
+
+text/html; /home/mark/.bin/mutt-launch %s dillo -f
+text/html; w3m -dump %s; nametemplate=%s.html; copiousoutput

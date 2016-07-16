@@ -10,3 +10,6 @@ unignore from date subject to cc bcc
 # Define some keys for using mu.
 macro index <F8> "<shell-escape>mu find --clearlinks --format=links --linksdir=~/.mu/search -u \"m:/pgsql*\" g:unread " "mu find"
 macro index <F9> "<change-folder-readonly>~/.mu/search" "mu find results"
+
+auto_view text/html
+alternative_order text/plain text/enriched text/html
