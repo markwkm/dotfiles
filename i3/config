@@ -167,12 +167,13 @@ bindsym XF86AudioMute exec amixer sset Master toggle
 bindsym XF86MonBrightnessUp exec xbacklight -inc 20
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20
 
-set $mode_system System (l) lock, (e) logout, (r) reboot, (Shift+s) shutdown
+set $mode_system System (l) lock, (e) logout, (h) hibernate, (r) reboot, (s) suspend, (Shift+s) shutdown
 mode "$mode_system" {
         bindsym l exec --no-startup-id i3exit lock, mode "default"
         bindsym e exec --no-startup-id i3exit logout, mode "default"
+        bindsym h exec --no-startup-id sudo /usr/sbin/hibernate, mode "default"
         bindsym r exec --no-startup-id sudo reboot
-        bindsym s exec --no-startup-id i3exit suspend, mode "default"
+        bindsym s exec --no-startup-id sudo /usr/sbin/hibernate-ram, mode "default"
         bindsym Shift+s exec --no-startup-id sudo shutdown -h 0
 
         # back to normal: Enter or Escape
@@ -226,4 +227,3 @@ for_window [class="Virt-manager"] floating enable                             <
 exec_always --no-startup-id xrdb ~/.Xdefaults
 exec_always --no-startup-id nitrogen --restore
 exec_always --no-startup-id compton -f
-#exec --no-startup-id launchy
