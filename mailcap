@@ -1,4 +1,8 @@
 application/pdf; /home/mark/.bin/mutt-launch %s zathura
 
+image/png; /home/mark/.bin/mutt-launch %s feh -x -.
+
 text/html; /home/mark/.bin/mutt-launch %s dillo -f
 text/html; w3m -dump %s; nametemplate=%s.html; copiousoutput
+
+text/plain; /home/mark/.bin/mutt-launch %s gvim -R -n
