@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# Save attachments to a temp directory and launch an external app in the
+# background so that mail can still be viewed in mutt.  Use /tmp so that these
+# files are cleaned up automatically.
+
+# usage: $0 FILENAME command [arg ...]
+
+DOWNLOADDIR="/tmp/.mutt.$USER"
+mkdir -p $DOWNLOADDIR
+
+FILENAME=$1
+cp -p $FILENAME $DOWNLOADDIR/
+
+shift
+
+nohup $@ $DOWNLOADDIR/`basename $FILENAME` > /dev/null 2>&1 &

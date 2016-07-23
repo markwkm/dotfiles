@@ -1,0 +1,32 @@
+#!/bin/sh
+
+if [ $# -ne 2 ]; then
+	echo "usage: `basename $0` <maildir> <audiofile>"
+	exit 1
+fi
+
+MAILDIR=$1
+AUDIOFILE=$2
+
+if [ ! -d "$MAILDIR/new" ]; then
+	echo "directory does not exist: $MAILDIR/new"
+	exit 2
+fi
+
+if [ ! -f "$AUDIOFILE" ]; then
+	echo "audio file does not exist: $AUDIOFILE"
+	exit 3
+fi
+
+# Use a timeout with inotifywait otherwise this script cannot be killed when
+# daemonized.
+inotifywait -t 15 -qe moved_to $MAILDIR/new | while read dir event file; do
+	if [ ! "x" = "x$file" ]; then
+		mplayer -quiet $AUDIOFILE &
+		# It's ok not to catch every single new email.  Mail probably
+		# shouldn't be checked every second and this will keep it from
+		# sending a lot of notification is there are a lot of emails that
+		# show up.
+		sleep 1
+	fi
+done
