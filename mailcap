@@ -1,8 +1,11 @@
-application/pdf; /home/mark/.bin/mutt-launch %s zathura
+application/pdf; ~/.bin/mutt-launch %s zathura
+application/octet-stream; ~/.bin/mutt-launch %s mplayer -quiet
+application/x-sh; ~/.bin/mutt-launch %s gvim -R -n
 
-image/png; /home/mark/.bin/mutt-launch %s feh -x -.
+image/jpeg; ~/.bin/mutt-launch %s feh -x -.
+image/png; ~/.bin/mutt-launch %s feh -x -.
 
-text/html; /home/mark/.bin/mutt-launch %s dillo -f
+text/html; ~/.bin/mutt-launch %s dillo -f
 text/html; w3m -dump %s; nametemplate=%s.html; copiousoutput
 
-text/plain; /home/mark/.bin/mutt-launch %s gvim -R -n
+text/plain; ~/.bin/mutt-launch %s gvim -R -n
