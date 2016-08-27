@@ -1,7 +1,5 @@
 export TERM=xterm-256color
 export LESS="-r -x4"
-export LC_ALL="en_US.utf-8"
-export LANG="en_US.utf-8"
 
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0-solarized-dark"
 export EDITOR=vim
