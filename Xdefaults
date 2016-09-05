@@ -59,7 +59,8 @@ urxvt.background: #002b36
 *color14: #93a1a1
 *color15: #fdf6e3
 
-URxvt.perl-ext-common:default,matcher,selection_to_clipboard
+URxvt.perl-ext-common:default,matcher,selection_to_clipboard,selection-autotransform
+URxvt.selection-autotransform.0: s/ +$//gm
 URxvt.url-launcher:   /usr/bin/firefox-bin
 URxvt.underlineURLs:  False
 
