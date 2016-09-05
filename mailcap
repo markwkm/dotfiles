@@ -5,7 +5,7 @@ application/x-sh; ~/.bin/mutt-launch %s gvim -R -n
 image/jpeg; ~/.bin/mutt-launch %s feh -x -.
 image/png; ~/.bin/mutt-launch %s feh -x -.
 
-text/html; ~/.bin/mutt-launch %s dillo -f
+text/html; ~/.bin/mutt-launch %s surf
 text/html; w3m -dump %s; nametemplate=%s.html; copiousoutput
 
 text/plain; ~/.bin/mutt-launch %s gvim -R -n
