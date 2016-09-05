@@ -208,11 +208,11 @@ bar {
 }
 
 # class                 border  backgr. text    indicator child_border
-client.focused          #268bd2 #268bd2 #fdf6e3 #cb4b16   #268bd2
-client.focused_inactive #839496 #839496 #eee8d5 #cb4b16   #839496
-client.unfocused        #073642 #073642 #93a1a1 #cb4b16   #073642
-client.urgent           #dc322f #dc322f #fdf6e3 #cb4b16   #dc322f
-client.placeholder      #b58900 #b58900 #fdf6e3 #cb4b16   #b58900
+client.focused          #268bd2 #268bd2 #fdf6e3 #b58900   #268bd2
+client.focused_inactive #839496 #839496 #eee8d5 #b58900   #839496
+client.unfocused        #073642 #073642 #93a1a1 #b58900   #073642
+client.urgent           #dc322f #dc322f #fdf6e3 #b58900   #dc322f
+client.placeholder      #b58900 #b58900 #fdf6e3 #b58900   #b58900
 
 client.background       #859900
 
@@ -222,6 +222,8 @@ for_window [class="URxvt"] exec "transset -a .888888"
 
 for_window [class="Arandr"] floating enable
 for_window [class="Cssh"] floating enable
+for_window [class="Pavucontrol"] floating enable
+for_window [class="Skype" title="Options"] floating enable
 for_window [class="Virt-manager"] floating enable
 
 exec_always --no-startup-id xrdb ~/.Xdefaults
