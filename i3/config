@@ -222,6 +222,7 @@ for_window [class="URxvt"] exec "transset -a .888888"
 
 for_window [class="Arandr"] floating enable
 for_window [class="Cssh"] floating enable
+for_window [class="feh"] floating enable
 for_window [class="Pavucontrol"] floating enable
 for_window [class="Skype" title="Options"] floating enable
 for_window [class="Virt-manager"] floating enable
