@@ -10,7 +10,9 @@ bindkey -v
 autoload colors; colors
 
 setopt prompt_subst
-setopt histignorespace
+setopt hist_ignore_space
+setopt hist_ignore_all_dups
+setopt inc_append_history
 
 umask 022
 
@@ -28,7 +30,6 @@ bindkey '\e/' vi-history-search-backward
 HISTSIZE=1000
 SAVEHIST=1000
 HISTFILE=~/.zhistory
-setopt inc_append_history
 
 # Prompt and window title bar functions
 
