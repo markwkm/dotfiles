@@ -47,6 +47,8 @@ bindsym $mod+d exec --no-startup-id i3-dmenu-desktop \
                 --dmenu='rofi -i -fuzzy -dmenu -modi drun -opacity 88 -p ".oO "'
 bindsym XF86LaunchA exec --no-startup-id rofi -show window -opacity 88
 
+bindsym $mod+Shift+d exec --no-startup-id pcmanfm-qt
+
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
@@ -203,7 +205,7 @@ bar {
                 active_workspace   #268bd2 #002b36 #fdf6e3
                 inactive_workspace #002b36 #002b36 #fdf6e3
                 urgent_workspace   #dc322f #dc322f #fdf6e3
-                binding_mode       #6c71c4 #6c71c4 #fdf6e3
+                binding_mode       #b58900 #b58900 #fdf6e3
         }
 }
 
@@ -223,9 +225,13 @@ for_window [class="URxvt"] exec "transset -a .888888"
 for_window [class="Arandr"] floating enable
 for_window [class="Cssh"] floating enable
 for_window [class="feh"] floating enable
+for_window [class="MPlayer"] floating enable
 for_window [class="Pavucontrol"] floating enable
 for_window [class="Skype" title="Options"] floating enable
+for_window [class="smplayer"] floating enable
 for_window [class="Virt-manager"] floating enable
+for_window [class="vlc"] floating enable
+for_window [class="Wicd-client.py"] floating enable
 
 exec_always --no-startup-id xrdb ~/.Xdefaults
 exec_always --no-startup-id nitrogen --restore
