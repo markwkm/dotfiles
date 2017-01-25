@@ -1,11 +1,13 @@
 application/pdf; ~/.bin/mutt-launch %s zathura
 application/octet-stream; ~/.bin/mutt-launch %s mplayer -quiet
+application/vnd.openxmlformats-officedocument.wordprocessingml.document; ~/.bin/mutt-launch %s libreoffice
+application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; ~/.bin/mutt-launch %s libreoffice
 application/x-sh; ~/.bin/mutt-launch %s gvim -R -n
 
 image/jpeg; ~/.bin/mutt-launch %s feh -x -.
 image/png; ~/.bin/mutt-launch %s feh -x -.
 
-text/html; ~/.bin/mutt-launch %s surf
+text/html; ~/.bin/mutt-launch %s surf -a@ -g -s
 text/html; w3m -dump %s; nametemplate=%s.html; copiousoutput
 
 text/plain; ~/.bin/mutt-launch %s gvim -R -n

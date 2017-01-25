@@ -230,6 +230,7 @@ for_window [class="Pavucontrol"] floating enable
 for_window [class="Skype" title="Options"] floating enable
 for_window [class="smplayer"] floating enable
 for_window [class="Virt-manager"] floating enable
+for_window [class="VirtualBox"] floating enable
 for_window [class="vlc"] floating enable
 for_window [class="Wicd-client.py"] floating enable
 
