@@ -30,6 +30,7 @@ bindkey '\e/' vi-history-search-backward
 HISTSIZE=1000
 SAVEHIST=1000
 HISTFILE=~/.zhistory
+setopt inc_append_history
 
 # Prompt and window title bar functions
 
@@ -136,8 +137,9 @@ PS1='$(prompt_command_ps1)'
 #exec 2>>(while read line; do
 #	print '\e[91m'${(q)line}'\e[0m' > /dev/tty; print -n $'\0'; done &)
 
-if [ -f /usr/share/virtualenvwrapper/virtualenvwrapper.sh ]; then
-	source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
+VIRTUALENVWRAPPER="/usr/bin/virtualenvwrapper.sh"
+if [ -f "$VIRTUALENVWRAPPER" ]; then
+	source $VIRTUALENVWRAPPER
 fi
 
 # For awesome
