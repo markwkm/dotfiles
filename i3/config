@@ -133,7 +133,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Exit' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -171,11 +171,11 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 20
 
 set $mode_system System (l) lock, (e) logout, (h) hibernate, (r) reboot, (s) suspend, (Shift+s) shutdown
 mode "$mode_system" {
-        bindsym l exec --no-startup-id i3exit lock, mode "default"
-        bindsym e exec --no-startup-id i3exit logout, mode "default"
+        bindsym l exec --no-startup-id i3lock -e -c 000000, mode "default"
+        bindsym e exec i3-msg exit
         bindsym h exec --no-startup-id sudo /usr/sbin/hibernate, mode "default"
-        bindsym r exec --no-startup-id sudo reboot
-        bindsym s exec --no-startup-id sudo /usr/sbin/hibernate-ram, mode "default"
+        bindsym r exec sudo reboot
+        bindsym s exec --no-startup-id i3lock -e -c 000000 && sudo /usr/sbin/hibernate-ram, mode "default"
         bindsym Shift+s exec --no-startup-id sudo shutdown -h 0
 
         # back to normal: Enter or Escape
@@ -223,6 +223,7 @@ for_window [class=".*"] title_format "%class: %title"
 for_window [class="URxvt"] exec "transset -a .888888"
 
 for_window [class="Arandr"] floating enable
+for_window [class="Connman-gtk"] floating enable
 for_window [class="Cssh"] floating enable
 for_window [class="feh"] floating enable
 for_window [class="MPlayer"] floating enable
@@ -232,7 +233,6 @@ for_window [class="smplayer"] floating enable
 for_window [class="Virt-manager"] floating enable
 for_window [class="VirtualBox"] floating enable
 for_window [class="vlc"] floating enable
-for_window [class="Wicd-client.py"] floating enable
 
 exec_always --no-startup-id xrdb ~/.Xdefaults
 exec_always --no-startup-id nitrogen --restore
