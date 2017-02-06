@@ -161,6 +161,9 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+bindsym $mod+t exec ~/.screenlayout/hpspctr13tx360-flipped.sh
+bindsym $mod+Shift+t exec ~/.screenlayout/hpspctr13tx360.sh
+
 bindsym XF86AudioRaiseVolume exec amixer sset Master 5%+ unmute
 bindsym XF86AudioLowerVolume exec amixer sset Master 5%- unmute
 bindsym XF86AudioMute exec amixer sset Master toggle
