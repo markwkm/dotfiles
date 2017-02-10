@@ -133,7 +133,8 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Exit' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "i3-nagbar -t warning \
+                -m 'This will end your X session.' -b 'Exit' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -161,25 +162,26 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-bindsym $mod+t exec ~/.screenlayout/hpspctr13tx360-flipped.sh
-bindsym $mod+Shift+t exec ~/.screenlayout/hpspctr13tx360.sh
+bindsym $mod+t exec --no-startup-id ~/.screenlayout/hpspctr13tx360-flipped.sh
+bindsym $mod+Shift+t exec --no-startup-id ~/.screenlayout/hpspctr13tx360.sh
 
-bindsym XF86AudioRaiseVolume exec amixer sset Master 5%+ unmute
-bindsym XF86AudioLowerVolume exec amixer sset Master 5%- unmute
-bindsym XF86AudioMute exec amixer sset Master toggle
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer sset Master 5%+ unmute
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer sset Master 5%- unmute
+bindsym XF86AudioMute exec --no-startup-id amixer sset Master toggle
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 20
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 20
 
 set $mode_system System (l) lock, (e) logout, (h) hibernate, (r) reboot, (s) suspend, (Shift+s) shutdown
 mode "$mode_system" {
-        bindsym l exec --no-startup-id i3lock -e -c 000000, mode "default"
+        bindsym l exec --no-startup-id i3lock -c 002b36 \
+                -i /usr/share/icons/gentoo/l33t/l33t_LOG_ice_cream_gentoo.png, mode "default"
         bindsym e exec i3-msg exit
         bindsym h exec --no-startup-id sudo /usr/sbin/hibernate, mode "default"
         bindsym r exec sudo reboot
-        bindsym s exec --no-startup-id i3lock -e -c 000000 && sudo /usr/sbin/hibernate-ram, mode "default"
-        bindsym Shift+s exec --no-startup-id sudo shutdown -h 0
+        bindsym s exec i3lock -e -c 000000 && sudo /usr/sbin/hibernate-ram, mode "default"
+        bindsym Shift+s exec sudo shutdown -h 0
 
         # back to normal: Enter or Escape
         bindsym Return mode "default"
@@ -223,7 +225,7 @@ client.background       #859900
 
 no_focus [class=".*"]
 for_window [class=".*"] title_format "%class: %title"
-for_window [class="URxvt"] exec "transset -a .888888"
+for_window [class="URxvt"] exec --no-startup-id "transset -a .888888"
 
 for_window [class="Arandr"] floating enable
 for_window [class="Connman-gtk"] floating enable
@@ -234,9 +236,11 @@ for_window [class="Pavucontrol"] floating enable
 for_window [class="Skype" title="Options"] floating enable
 for_window [class="smplayer"] floating enable
 for_window [class="Virt-manager"] floating enable
-for_window [class="VirtualBox"] floating enable
 for_window [class="vlc"] floating enable
 
 exec_always --no-startup-id xrdb ~/.Xdefaults
 exec_always --no-startup-id nitrogen --restore
 exec_always --no-startup-id compton -f
+exec_always --no-startup-id /usr/sbin/daemonize -p /tmp/.xautolock.$USER.pid \
+        -l /tmp/.xautolock.$USER.lock /usr/bin/xautolock -time 5 \
+        -locker "i3lock -c 002b36 -i /usr/share/icons/gentoo/l33t/l33t_LOG_ice_cream_gentoo.png"
