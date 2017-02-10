@@ -165,6 +165,7 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+# Invert the screen
 bindsym $mod+t exec --no-startup-id ~/.screenlayout/hpspctr13tx360-flipped.sh
 bindsym $mod+Shift+t exec --no-startup-id ~/.screenlayout/hpspctr13tx360.sh
 
@@ -239,6 +240,7 @@ for_window [class="Pavucontrol"] floating enable
 for_window [class="Skype" title="Options"] floating enable
 for_window [class="smplayer"] floating enable
 for_window [class="Virt-manager"] floating enable
+for_window [class="VirtualBox"] floating enable
 for_window [class="vlc"] floating enable
 
 exec_always --no-startup-id xrdb ~/.Xdefaults
