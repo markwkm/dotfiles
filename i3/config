@@ -179,12 +179,15 @@ bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 20
 
 set $mode_system System (l) lock, (e) logout, (h) hibernate, (r) reboot, (s) suspend, (Shift+s) shutdown
 mode "$mode_system" {
-        bindsym l exec --no-startup-id i3lock -c 002b36 \
-                -i /usr/share/icons/gentoo/l33t/l33t_LOG_ice_cream_gentoo.png, mode "default"
+        bindsym l exec --no-startup-id i3lock -e -c 002b36 -i \
+                /usr/share/icons/gentoo/l33t/l33t_LOG_ice_cream_gentoo.png, \
+                mode "default"
         bindsym e exec i3-msg exit
         bindsym h exec --no-startup-id sudo /usr/sbin/hibernate, mode "default"
         bindsym r exec sudo reboot
-        bindsym s exec i3lock -e -c 000000 && sudo /usr/sbin/hibernate-ram, mode "default"
+        bindsym s exec i3lock -e -c 002b36 \
+                -i /usr/share/icons/gentoo/l33t/l33t_LOG_ice_cream_gentoo.png \
+                && sudo /usr/sbin/hibernate-ram, mode "default"
         bindsym Shift+s exec sudo shutdown -h 0
 
         # back to normal: Enter or Escape
@@ -248,4 +251,4 @@ exec_always --no-startup-id nitrogen --restore
 exec_always --no-startup-id compton -f
 exec_always --no-startup-id /usr/sbin/daemonize -p /tmp/.xautolock.$USER.pid \
         -l /tmp/.xautolock.$USER.lock /usr/bin/xautolock -time 5 \
-        -locker "i3lock -c 002b36 -i /usr/share/icons/gentoo/l33t/l33t_LOG_ice_cream_gentoo.png"
+        -locker "i3lock -e -c 002b36 -i /usr/share/icons/gentoo/l33t/l33t_LOG_ice_cream_gentoo.png"
