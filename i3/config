@@ -74,7 +74,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+Shift+h split h
+bindsym $mod+Shift+v split h
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -148,9 +148,9 @@ mode "resize" {
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
         bindsym h resize shrink width 10 px or 10 ppt
-        bindsym l resize grow height 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
         bindsym j resize shrink height 10 px or 10 ppt
-        bindsym k resize grow width 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 1 px or 1 ppt
@@ -165,9 +165,8 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# Invert the screen
-bindsym $mod+t exec --no-startup-id ~/.screenlayout/hpspctr13tx360-flipped.sh
-bindsym $mod+Shift+t exec --no-startup-id ~/.screenlayout/hpspctr13tx360.sh
+# Rotate the screen
+bindsym $mod+t exec --no-startup-id ~/.screenlayout/tablet.sh
 
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer sset Master 5%+ unmute
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer sset Master 5%- unmute
@@ -183,11 +182,13 @@ mode "$mode_system" {
                 /usr/share/icons/gentoo/l33t/l33t_LOG_ice_cream_gentoo.png, \
                 mode "default"
         bindsym e exec i3-msg exit
-        bindsym h exec --no-startup-id sudo /usr/sbin/hibernate, mode "default"
+        bindsym h exec --no-startup-id i3lock -e -c 002b36 -i \
+                /usr/share/icons/gentoo/l33t/l33t_LOG_ice_cream_gentoo.png \
+                && sudo /usr/sbin/pm-hibernate, mode "default"
         bindsym r exec sudo reboot
-        bindsym s exec i3lock -e -c 002b36 \
-                -i /usr/share/icons/gentoo/l33t/l33t_LOG_ice_cream_gentoo.png \
-                && sudo /usr/sbin/hibernate-ram, mode "default"
+        bindsym s exec i3lock -e -c 002b36 -i \
+                /usr/share/icons/gentoo/l33t/l33t_LOG_ice_cream_gentoo.png \
+                && sudo /usr/sbin/pm-suspend, mode "default"
         bindsym Shift+s exec sudo shutdown -h 0
 
         # back to normal: Enter or Escape
