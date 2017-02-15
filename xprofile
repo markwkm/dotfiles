@@ -1,7 +1,11 @@
-monitor=`xrandr | grep -i edp | cut -d " " -f 1`
-xrandr --newmode  "1440x900_60.00"  106.50  1440 1528 1672 1904  900 903 909 934 -hsync +vsync
-xrandr --addmode $monitor 1440x900_60.00
-xrandr --output $monitor --mode 1440x900_60.00
+~/.screenlayout/hpspctr13tx360.sh &
+
+# evdev
+#xinput set-button-map "SynPS/2 Synaptics TouchPad" 1 2 3 4 5 7 6
+#xinput set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Scrolling Distance" -109 -109
+
+# libinput
+xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Natural Scrolling Enabled" 1
 
 for id in $(xinput --list | sed -n '/Logitech USB Receiver/s/.*=\([0-9]\+\).*/\1/p')
 do
