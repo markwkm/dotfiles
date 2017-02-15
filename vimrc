@@ -11,7 +11,7 @@ call vundle#begin()
 Plugin 'Lokaltog/vim-distinguished'
 "Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-fugitive'
-Plugin 'bling/vim-airline'
+"Plugin 'bling/vim-airline'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-notes'
 Plugin 'altercation/vim-colors-solarized'
