@@ -59,14 +59,13 @@ urxvt.background: #002b36
 *color14: #93a1a1
 *color15: #fdf6e3
 
-URxvt.perl-ext-common:default,matcher,selection_to_clipboard,selection-autotransform
-URxvt.selection-autotransform.0: s/ +$//gm
-URxvt.url-launcher:   /usr/bin/firefox-bin
-URxvt.underlineURLs:  False
-
-URxvt.perl-lib: /usr/lib64/urxvt/perl/font-size
 URxvt.keysym.Control-Shift-Up: perl:font:increment
 URxvt.keysym.Control-Shift-Down: perl:font:decrement
+URxvt.perl-ext-common:default,matcher,selection-to-clipboard,selection-autotransform
+!URcvt.perl-lib: /usr/lib64/urxvt/perl
+URxvt.selection-autotransform.0: s/[:space:]+$/\/gm
+URxvt.underlineURLs: False
+URxvt.url-launcher: /usr/bin/firefox-bin
 
 nedit*text.background: #002b36
 nedit*text.foreground: #657b83
