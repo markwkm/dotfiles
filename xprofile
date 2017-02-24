@@ -1,3 +1,7 @@
+export GTK2_RC_FILES="$HOME/.gtkrc-2.0-solarized-dark"
+export BROWSER="/usr/bin/firefox-bin"
+export MOZ_USE_XINPUT2=1
+
 ~/.screenlayout/hpspctr13tx360.sh &
 
 # evdev
@@ -6,8 +10,19 @@
 
 # libinput
 xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Natural Scrolling Enabled" 1
+xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Click Method Enabled" 0 1
 
 for id in $(xinput --list | sed -n '/Logitech USB Receiver/s/.*=\([0-9]\+\).*/\1/p')
 do
 	xinput set-button-map $id 1 2 3 5 4 7 6 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24
 done
+
+setxkbmap -layout us -variant altgr-intl
+if [ -d /usr/share/fonts/mplus ]; then
+	xset +fp /usr/share/fonts/mplus
+fi
+
+# disable audible bell
+xset b off
+
+libinput-gestures-setup start
