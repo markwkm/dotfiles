@@ -150,3 +150,8 @@ fi
 
 alias ls="ls --color=auto"
 eval `dircolors ~/.dir_colors`
+
+which keychain > /dev/null 2>&1
+if [ $? -eq 0 ]; then
+	eval `keychain -q --eval`
+fi
