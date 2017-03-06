@@ -52,7 +52,7 @@ set foldmethod=indent
 set foldlevel=161 " A way to open all folds be default
 set shiftwidth=4
 set textwidth=79
-let &colorcolumn=join(range(80,999),",")
+let &colorcolumn=join(range(80,8888),",")
 set paste
 
 let g:notes_unicode_enabled = 0
