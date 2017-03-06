@@ -63,7 +63,7 @@ URxvt.keysym.Control-Shift-Up: perl:font:increment
 URxvt.keysym.Control-Shift-Down: perl:font:decrement
 URxvt.perl-ext-common:default,matcher,selection-to-clipboard,selection-autotransform
 !URcvt.perl-lib: /usr/lib64/urxvt/perl
-URxvt.selection-autotransform.0: s/[:space:]+$/\/gm
+URxvt.selection-autotransform.0: s/ +$\/\/gm
 URxvt.underlineURLs: False
 URxvt.url-launcher: /usr/bin/firefox-bin
 
