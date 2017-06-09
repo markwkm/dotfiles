@@ -190,6 +190,7 @@ mode "$mode_system" {
                 /usr/share/icons/gentoo/l33t/l33t_LOG_ice_cream_gentoo.png \
                 && sudo /usr/sbin/pm-suspend, mode "default"
         bindsym Shift+s exec sudo shutdown -h 0
+        bindsym u exec dm-tool switch-to-greeter, mode "default"
 
         # back to normal: Enter or Escape
         bindsym Return mode "default"

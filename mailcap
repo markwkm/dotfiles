@@ -1,7 +1,10 @@
-application/pdf; ~/.bin/mutt-launch %s zathura
+application/ms-tnef; ~/.bin/mutt-tnef %s
+application/msword; ~/.bin/mutt-launch %s libreoffice
+application/octet-stream; ~/.bin/mutt-launch %s mplayer -quiet
+application/pdf; ~/.bin/mutt-launch %s evince
+application/vnd.ms-excel; ~/.bin/mutt-launch %s libreoffice
 application/vnd.oasis.opendocument.text; ~/.bin/mutt-launch %s libreoffice
 application/vnd.oasis.opendocument.spreadsheet; ~/.bin/mutt-launch %s libreoffice
-application/octet-stream; ~/.bin/mutt-launch %s mplayer -quiet
 application/vnd.openxmlformats-officedocument.wordprocessingml.document; ~/.bin/mutt-launch %s libreoffice
 application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; ~/.bin/mutt-launch %s libreoffice
 application/x-sh; ~/.bin/mutt-launch %s gvim -R -n
