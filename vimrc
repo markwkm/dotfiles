@@ -39,12 +39,12 @@ set nosmartindent
 set ts=4
 
 set hlsearch
-:syntax on
-
 set t_Co=256
+
+:syntax on
 set background=dark
-let g:solarized_termcolors=256
 :colorscheme solarized
+let g:solarized_termcolors=256
 
 set inde=
 set noai
