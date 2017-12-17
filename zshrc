@@ -1,4 +1,5 @@
-export TERM=xterm-256color
+export TERM=tmux-256color
+export COLORTERM=truecolor
 export LESS="-r -x4"
 
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0-solarized-dark"
