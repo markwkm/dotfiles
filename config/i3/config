@@ -208,7 +208,7 @@ bindsym $mod+minus scratchpad show
 # finds out, if available)
 bar {
         font pango:M+ 1mn Medium 10
-        status_command i3status --config ~/.i3/i3status.conf
+        status_command i3status --config ~/.config/i3/i3status.conf
         tray_output eDP1
         colors {
                 background #002b36
