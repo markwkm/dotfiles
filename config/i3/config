@@ -249,7 +249,6 @@ for_window [class="mpv"] floating enable
 for_window [class="Pavucontrol"] floating enable
 for_window [class="Skype" title="Options"] floating enable
 for_window [class="smplayer"] floating enable
-for_window [class="Virt-manager"] floating enable
 for_window [class="VirtualBox"] floating enable
 for_window [class="vlc"] floating enable
 
@@ -261,3 +260,4 @@ exec_always --no-startup-id /usr/sbin/daemonize -p /tmp/.xautolock.$USER.pid \
         -corners 0-00 -locker \
         "i3lock -e -c 002b36 -i /usr/share/icons/gentoo/l33t/l33t_LOG_ice_cream_gentoo.png"
 exec_always --no-startup-id keychain
+exec_always --no-startup-id nm-applet
