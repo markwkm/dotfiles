@@ -149,10 +149,13 @@ if [ $? -eq 0 ]; then
 	wmname LG3D
 fi
 
-alias ls="ls --color=auto"
-eval `dircolors ~/.dir_colors`
+which dircolors > /dev/null 2>&1
+if [ $? -eq 0 ]; then
+	alias ls="ls --color=auto"
+	eval `dircolors ~/.dir_colors`
+fi
 
 which keychain > /dev/null 2>&1
 if [ $? -eq 0 ] && ! [ "x$DISPLAY" = "x" ]; then
-	eval `keychain -q --eval`
+	eval `keychain --eval --agents ssh,gpg`
 fi

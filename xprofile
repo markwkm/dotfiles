@@ -23,6 +23,8 @@ if [ -d /usr/share/fonts/mplus ]; then
 	xset +fp /usr/share/fonts/mplus
 fi
 
+eval `keychain -q --eval --agents ssh,gpg`
+
 # disable audible bell
 xset b off
 
