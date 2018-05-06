@@ -1,0 +1,41 @@
+CFLAGS="-march=native -O2 -pipe"
+CXXFLAGS="${CFLAGS}"
+
+CHOST="{{ansible_architecture}}-pc-linux-gnu"
+
+USE="256-color aac abi_x86_32 alsa aqua archive blink bluetooth cairo -cdio \
+cjk -crashreporter cups -dbus dhcpcd dnssec down-root djvu egl exif \
+fading-colors fat fontconfig hfs fuse -geoloc -geolocation gif glamor gles \
+gpg gpm gnutls graphviz gstreamer gtk gtkstyle -handbook i3 icu imagemagick \
+imap imlib -introspection javafx jpeg libevent libnotify libkms logrotate \
+luatex lxc minizip mmx -modemmanager mp3 natspec nsplugin ntfs ofx opengl \
+openvpn otr passwordsave pdf pkcs11 plymouth pm-utils postscript -ppp png \
+-policykit pulseaudio purple qt3support -qt4 qt5 sdl sdl2 -seccomp \
+secondary-wheel slang smime smtp socks spell spice sse sse2 \
+startup-notification suid svg tex4ht tiff tk truetype udev udisks usb uxa v4l \
+-vala virgl virt-network virtfs -virtualbox vaapi vdpau vte wayland -webkit \
+-wext windowmode xcb xetex xft xfs xlib-xcb xvfb xvmc xinerama X"
+
+CPU_FLAGS_X86="mmx mmxext sse sse2 sse3 ssse3 sse4_1 sse4_2"
+
+PORTDIR="/usr/portage"
+DISTDIR="${PORTDIR}/distfiles"
+PKGDIR="${PORTDIR}/packages"
+
+ALSA_CARDS="hda-intel"
+INPUT_DEVICES="keyboard libinput mouse"
+MAKEOPTS="-j{{ ansible_processor_vcpus }}"
+VIDEO_CARDS="intel i965"
+LINGUAS="en"
+L10N="en"
+
+COLLECTD_PLUGINS="aggregation cpu csv disk ethstat exec hugepages intel_rdt \
+interface ipc irq load logfile memory mic netlink network ping postgresql \
+processes swap syslog table tail tail_csv turbostat vmem write_http write_log"
+
+PYTHON_SINGLE_TARGET="python3_5"
+PYTHON_TARGETS="python2_7 python3_5"
+RUBY_TARGETS="ruby22"
+
+FEATURES="ccache"
+CCACHE_SIZE="5G"
