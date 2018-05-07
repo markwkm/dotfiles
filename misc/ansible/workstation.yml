@@ -3,5 +3,6 @@
   connection: local
   roles:
     - workstation
+    - rebuild
     - basic
     - linux
