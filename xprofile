@@ -1,3 +1,5 @@
+eval `keychain -q --eval`
+
 export BROWSER="/usr/bin/firefox-bin"
 export MOZ_USE_XINPUT2=1
 
@@ -13,17 +15,16 @@ xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Click Method Enabled" 0 1
 xinput set-prop "Synaptics TM2869-001" "libinput Natural Scrolling Enabled" 1
 xinput set-prop "Synaptics TM2869-001" "libinput Click Method Enabled" 0 1
 
-for id in $(xinput --list | sed -n '/Logitech USB Receiver/s/.*=\([0-9]\+\).*/\1/p')
-do
-	xinput set-button-map $id 1 2 3 5 4 7 6 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24
+for id in $(xinput --list | sed -n '/Logitech USB Receiver/s/.*=\([0-9]\+\).*/\1/p'); do
+    xinput set-prop "$id" "libinput Natural Scrolling Enabled" 1
 done
+libinput-gestures-setup start
 
 setxkbmap -layout us -variant altgr-intl
+
 if [ -d /usr/share/fonts/mplus ]; then
 	xset +fp /usr/share/fonts/mplus
 fi
-
-eval `keychain -q --eval --agents ssh,gpg`
 
 # disable audible bell
 xset b off
