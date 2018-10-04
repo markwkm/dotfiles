@@ -1,0 +1,41 @@
+# Test String
+
+~-!1lI|0O(){}[]
+
+# Sans
+
+## Good in Terminal
+
+M+ 1mn
+Hack
+
+### Zero vs O not distinguished
+
+Noto Sans
+
+### Tilda not so good when too small
+
+Liberation Mono
+Bitstream Vera Sans Mono
+DejaVuSansMono
+Source Code Pro
+Inconsolata
+Droid Sans Mono (Slashed | Dotted) ** Slashed Dotted needed for ZEROs
+Ubuntu Mono
+Aerial Mono
+
+## Good in Terminal \ Bad in gvim
+
+Anonymous Pro (not smaller than 10)
+Nimbus Mono L
+
+## Bad in Terminal
+
+Fira Code
+Nimbus Mono L
+FreeMono
+Linux Libertine Mono O
+
+# Serif
+
+**Luxi Mono (serif) (no differentiation between "Oh" and "Zero"
