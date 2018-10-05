@@ -7,18 +7,7 @@ Xft.rgba:      rgb
 urxvt.termName: xterm
 
 ! xlsfonts or fc-list to list fonts
-!urxvt.font: xft:DejaVu\ Sans\ Mono:size=12
-!urxvt.font: xft:DejaVu\ Sans\ Mono:bold:size=12
-!urxvt.font: xft:Inconsolata:size=14
-!urxvt.font: xft:Inconsolata:bold:size=14
-!urxvt.font: xft:Terminus:size=14
-!urxvt.font: xft:Droid\ Sans\ Mono:size=12
-!urxvt.font: xft:Anonymous Pro:size=14
-!urxvt.font: xft:Ubuntu Mono:size=14
-!urxvt.font: xft:AR PL Mingti2L Big5
-!urxvt.font: xft:Source Code Pro:size=10
-!urxvt.font: xft:Source Code Pro:Semi-Bold:size=10
-urxvt.font: xft:M+ 1mn:medium:size=10
+urxvt.font: xft:Hack:Regular:size=10
 
 urxvt.depth: 32
 urxvt.saveLines: 1000
@@ -61,9 +50,9 @@ urxvt.background: #002b36
 
 URxvt.keysym.Control-Shift-Up: perl:font:increment
 URxvt.keysym.Control-Shift-Down: perl:font:decrement
-URxvt.perl-ext-common:default,matcher,selection-to-clipboard,selection-autotransform
 !URcvt.perl-lib: /usr/lib64/urxvt/perl
-URxvt.selection-autotransform.0: s/ +$\/\/gm
+URxvt.perl-ext-common:default,matcher,selection-to-clipboard,selection-autotransform
+URxvt.selection-autotransform.0: s/ +$/\/gm
 URxvt.underlineURLs: False
 URxvt.url-launcher: /usr/bin/firefox-bin
 
@@ -73,4 +62,5 @@ nedit*text.cursorForeground: #586e75
 nedit*text.highlightBackground: #586e75
 nedit*text.highlightForeground: #93a1a1
 
-rofi.font: M+ 1m Medium 16
+!rofi.font: M+ 1m Medium 16
+rofi.font: Droid Sans 16
