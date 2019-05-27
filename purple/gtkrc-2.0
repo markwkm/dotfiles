@@ -12,6 +12,7 @@ style "purplerc_style"
 	GtkIMHtml::receive-name-color = "#268BD2"
 	GtkIMHtml::action-name-color = "#B58900"
 	GtkIMHtml::typing-notification-color = "#EEE8D5"
+	GtkIMHtml::typing-notification-color = "#DC322F"
 }
 widget_class "*" style "purplerc_style"
 style "*pidgin_conv_entry_style"
