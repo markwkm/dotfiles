@@ -6,6 +6,9 @@ set sort = threads
 
 bind index - collapse-thread
 bind index _ collapse-all
+
+bind pager k next-line
+bind pager j previous-line
                                                                   
 ignore *
 unignore from date subject to cc bcc
