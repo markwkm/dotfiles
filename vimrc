@@ -9,15 +9,20 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'Lokaltog/vim-distinguished'
-"Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-fugitive'
-"Plugin 'bling/vim-airline'
+Plugin 'bling/vim-airline'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-notes'
 Plugin 'altercation/vim-colors-solarized'
 "Plugin 'vim-scripts/SQLUtilities'
 Plugin 'jphustman/SQLUtilities'
 Plugin 'vim-scripts/Align'
+Plugin 'ycm-core/YouCompleteMe'
+Plugin 'ervandew/supertab'
+Plugin 'scrooloose/syntastic'
+Plugin 'majutsushi/tagbar'
+Plugin 'vim-scripts/taglist.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -54,6 +59,8 @@ set shiftwidth=4
 set textwidth=79
 let &colorcolumn=join(range(80,8888),",")
 set paste
+
+hi SpellBad term=underline,bold cterm=underline,bold ctermfg=red gui=undercurl guisp=Red
 
 let g:notes_unicode_enabled = 0
 let g:notes_smart_quotes = 0
