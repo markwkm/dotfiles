@@ -1,0 +1,9 @@
+urxvt
+-----
+printf '\e]710;%s\007' "xft:M+ 1mn:medium:size=9"
+printf '\e]710;%s\007' "xft:Hack:Regular:size=10"
+
+tmux
+----
+
+tmux set status on
