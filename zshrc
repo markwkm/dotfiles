@@ -14,6 +14,7 @@ setopt prompt_subst
 setopt hist_ignore_space
 setopt hist_ignore_all_dups
 setopt inc_append_history
+setopt nonomatch
 
 umask 022
 
