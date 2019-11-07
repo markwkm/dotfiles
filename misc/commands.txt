@@ -1,9 +1,20 @@
-urxvt
------
-printf '\e]710;%s\007' "xft:M+ 1mn:medium:size=9"
-printf '\e]710;%s\007' "xft:Hack:Regular:size=10"
+lxd
+---
+
+lxc image list images:
+lxc launch images:gentoo u1
+lxc config set <container> security.privileged true
+lxc config device add <container> homedir disk source=/home path=/home
+
+# For systemd guests
+lxc config set <container> raw.lxc 'lxc.mount.auto = cgroup'
 
 tmux
 ----
 
 tmux set status on
+
+urxvt
+-----
+printf '\e]710;%s\007' "xft:M+ 1mn:medium:size=9"
+printf '\e]710;%s\007' "xft:Hack:Regular:size=10"
