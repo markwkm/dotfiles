@@ -1,0 +1,20 @@
+total 61312
+   32 -rw------- 1 markwkm plugdev    14376 Jan  9 03:36 BCUsignature32.dll
+   32 -rw------- 1 markwkm plugdev    14376 Jan  9 03:36 BCUsignature64.dll
+   32 -rw------- 1 markwkm plugdev    19096 Jan 19 21:48 Bios Flash.htm
+   32 -rw------- 1 markwkm plugdev     1303 Jan 19 21:48 contents.txt
+   32 -rw------- 1 markwkm plugdev    15635 Jan 14 23:38 History.txt
+ 5184 -rw------- 1 markwkm plugdev  5302312 Jan  9 03:36 HpFirmwareUpdRec64.exe
+ 3360 -rw------- 1 markwkm plugdev  3421736 Jan  9 03:36 HpFirmwareUpdRec.exe
+   32 -rw------- 1 markwkm plugdev      985 Jan  9 09:16 HpFirmwareUpdRec for HP Sure Admin mode Operation Guide.txt
+   32 -rw------- 1 markwkm plugdev     3457 Oct 21 04:58 HpFirmwareUpdRec.txt
+ 3104 -rw------- 1 markwkm plugdev  3163688 Jan  9 03:36 HpqPswd64.exe
+ 2272 -rw------- 1 markwkm plugdev  2309672 Jan  9 03:36 HpqPswd.exe
+   32 -rw------- 1 markwkm plugdev     1011 Oct 21 04:58 HpqPswd.txt
+   32 -rw------- 1 markwkm plugdev    13486 Oct 21 04:58 license.txt
+   32 -rw------- 1 markwkm plugdev    14894 Oct 21 04:58 logo.bmp
+28480 -rw------- 1 markwkm plugdev 29140576 Jan  9 03:37 Q71_011000.bin
+   32 -rw------- 1 markwkm plugdev     1353 Jan  9 03:37 Q71_011000.inf
+   32 -rw------- 1 markwkm plugdev     4690 Jan 14 23:34 SP101277.cva
+18496 -rw------- 1 markwkm plugdev 18929240 Feb 25 20:58 sp101277.exe
+   32 -rw------- 1 markwkm plugdev     3275 Jan 14 23:34 SP101277.txt
