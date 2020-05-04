@@ -1,3 +1,5 @@
+bindkey -v
+
 # Solarized colours (http://ethanschoonover.com/solarized) as tcsh shell variables
 set solarized_base03  = "%{\033[1;30m%}"
 set solarized_base02  = "%{\033[0;30m%}"
@@ -19,8 +21,6 @@ set solarized_green   = "%{\033[0;32m%}"
 #set prompt = "%{\033[0;33m%}%n@%m %#%{\033[0m%} "
 set prompt = "%{\e]2;%n@%m: %~\a%}%S%{\033[0;33m%}%n@%m %#%{\033[1;36m%} "
 
-bindkey -v
-
 set history = 2000
 set savehist = (2000 merge)
 set histfile = ~/.tcsh_history
@@ -28,4 +28,10 @@ set histfile = ~/.tcsh_history
 which keychain >& /dev/null
 if ( $? == 0 ) then
 	eval `keychain --quiet --quick --eval --agents ssh,gpg`
+endif
+
+which dircolors >& /dev/null
+if ( $? == 0 && -f "~/.dir_colors" ) then
+    alias ls="ls --color=auto"
+    eval `dircolors ~/.dir_colors`
 endif
