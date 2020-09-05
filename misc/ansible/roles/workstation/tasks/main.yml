@@ -1,5 +1,0 @@
----
-- name: Use custom make.conf
-  template:
-    src: make.conf.j2
-    dest: /etc/portage/make.conf
