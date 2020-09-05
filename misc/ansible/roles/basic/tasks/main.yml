@@ -1,0 +1,32 @@
+---
+- name: Install Gentoo utilities
+  package: name={{ item }} state=present
+  with_items:
+    - eix
+    - layman
+
+- name: Install vim text editor related packages
+  package: name={{ item }} state=present
+  with_items:
+    - vim
+    - vim-spell-en
+    - gvim
+    - app-vim/airline
+    - nerdtree
+
+- name: Install shells
+  package: name={{ item }} state=present
+  with_items:
+    - zsh
+    - app-shells/dash
+
+- name: Install basic utilities
+  package: name={{ item }} state=present
+  with_items:
+    - lsof
+    - tree
+    - sudo
+    - tmux
+
+- name: Install git for version control
+  package: name=dev-vcs/git state=present

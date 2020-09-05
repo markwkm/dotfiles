@@ -9,7 +9,8 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-set $mod Mod1
+#set $mod Mod1
+set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -19,7 +20,7 @@ set $mod Mod1
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
 
-font pango:M+ 1m medium 9
+font pango:Droid Sans Bold 10
 
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -33,7 +34,8 @@ floating_modifier $mod
 
 # start a terminal
 #bindsym $mod+Return exec st -f "Hack:Regular:size=10" -c st -e tmux
-bindsym $mod+Return exec st -f "M+ 1mn:regular:size=10" -c st
+bindsym $mod+Return exec st -f "Hack:Regular:size=10" -c st
+#bindsym $mod+Return exec ELM_DISPLAY="wl" terminology --borderless --nowm
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -43,12 +45,11 @@ bindsym $mod+Shift+q kill
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-#bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop \
-                --dmenu='rofi -i -fuzzy -dmenu -modi drun -opacity 88 -p ".oO "'
-bindsym XF86LaunchA exec --no-startup-id rofi -show window -opacity 88
+bindsym $mod+d exec i3-dmenu-desktop \
+                    --dmenu='rofi -monitor -5 -i -fuzzy -dmenu -modi drun -opacity 88 -p ".oO "'
+bindsym XF86LaunchA exec rofi -show window -opacity 88
 
-bindsym $mod+Shift+d exec spacefm
+bindsym $mod+Shift+d exec pcmanfm
 
 # change focus
 bindsym $mod+h focus left
@@ -129,10 +130,8 @@ bindsym $mod+Control+Down workspace next
 bindsym $mod+Control+Left workspace prev_on_output
 bindsym $mod+Control+Right workspace next_on_output
 
-bindsym $mod+bracketright move workspace to output right
-bindsym $mod+bracketleft move workspace to output left
-bindsym $mod+Shift+bracketright move workspace to output up
-bindsym $mod+Shift+bracketleft move workspace to output down
+bindsym Shift+$mod+bracketright move workspace to output right
+bindsym Shift+$mod+bracketleft move workspace to output left
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -168,25 +167,21 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# Rotate the screen
-#bindsym $mod+t exec --no-startup-id ~/.screenlayout/tablet.sh
+# Volume controls
+bindsym XF86AudioMicMute amixer set Capture toggle
+bindsym XF86AudioMute amixer sset Master toggle
+bindsym XF86AudioLowerVolume amixer sset Master 5%- unmute
+bindsym XF86AudioRaiseVolume amixer sset Master 5%+ unmute
 
-bindsym $mod+m exec --no-startup-id /usr/bin/xinput set-prop "Synaptics TM2869-001" "Device Enabled" 1
-bindsym $mod+Shift+m exec --no-startup-id /usr/bin/xinput set-prop "Synaptics TM2869-001" "Device Enabled" 0
+# Screen brightness controls
+bindsym XF86MonBrightnessDown sudo light -U 10
+bindsym XF86MonBrightnessUp sudo light -A 10
 
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer sset Master 5%+ unmute
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer sset Master 5%- unmute
-bindsym XF86AudioMute exec --no-startup-id amixer sset Master toggle
-
-# Sreen brightness controls
-bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 20
-bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 20
-
-set $mode_system System (l) lock, (e) logout, (h) hibernate, (r) reboot, (s) suspend, (Shift+s) shutdown, (u) switch to user
+set $mode_system System (l) lock, (e) logout, (h) hibernate, (r) reboot, (s) suspend, (Shift+s) shutdown, (u) switch user
 mode "$mode_system" {
         bindsym l exec --no-startup-id i3lock -e -c 002b36 -i \
                 ~/Pictures/i3lock, mode "default"
-        bindsym e exec i3-msg exit
+        bindsym e exec --no-startup-id i3-msg exit
         bindsym h exec --no-startup-id i3lock -e -c 002b36 \
                 -i ~/Pictures/i3lock && sudo /usr/sbin/pm-hibernate, \
                 mode "default"
@@ -195,9 +190,7 @@ mode "$mode_system" {
                 -i ~/Pictures/i3lock && sudo /usr/sbin/pm-suspend, \
                 mode "default"
         bindsym Shift+s exec sudo shutdown -h 0
-        bindsym u exec dm-tool switch-to-greeter, mode "default"
-        bindsym u exec --no-startup-id dm-tool switch-to-greeter, \
-                mode "default"
+        bindsym u exec --no-startup-id dm-tool switch-to-greeter, mode "default"
 
         # back to normal: Enter or Escape
         bindsym Return mode "default"
@@ -211,12 +204,27 @@ bindsym $mod+Shift+minus move scratchpad
 # Show the first scratchpad window
 bindsym $mod+minus scratchpad show
 
+bindsym Pause exec --no-startup-id i3lock -e -c 002b36 -i \
+        /usr/share/icons/gentoo/l33t/l33t_LOG_ice_cream_gentoo.png, \
+        mode "default"
+
+# Custom
+bindsym $mod+p exec --no-startup-id /usr/bin/passmenu
+bindsym $mod+x exec env QT_QPA_PLATFORM=xcb /usr/bin/x2goclient
+
+# HP Specific
+
+# Laptop ? symbol key
+bindsym Menu exec rofi -show window -opacity 88
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        font pango:M+ 1m medium 9
-        status_command i3status
-        tray_output primary
+        font pango:Droid Sans Bold 8
+        status_command py3status --config ~/.config/i3/py3status.conf
+		mode dock
+        tray_output eDP-1
+        tray_output DP-3
         colors {
                 background #002b36
                 statusline #fdf6e3
@@ -232,42 +240,75 @@ bar {
 
 # class                 border  backgr. text    indicator child_border
 client.focused          #2aa198 #2aa198 #fdf6e3 #b58900   #2aa198
-client.focused_inactive #586e75 #073642 #93a1a1 #073642   #073642
-client.unfocused        #586e75 #073642 #93a1a1 #073642   #073642
+client.focused_inactive #073642 #073642 #93a1a1 #b58900   #073642
+client.unfocused        #073642 #073642 #93a1a1 #b58900   #073642
 client.urgent           #dc322f #dc322f #fdf6e3 #b58900   #dc322f
-client.placeholder      #b58900 #b58900 #fdf6e3 #ignore   #ignore
+client.placeholder      #b58900 #b58900 #fdf6e3 #b58900   #b58900
 
 client.background       #859900
 
 no_focus [class=".*"]
-
 for_window [class=".*"] title_format "%class: %title"
+for_window [class="URxvt"] exec --no-startup-id "transset -a .888888"
 
-for_window [window_role="pop-up"] floating enable
-for_window [window_role="task_dialog"] floating enable
-
-for_window [class="Arandr"] floating enable
-for_window [class="Blueman-manager"] floating enable
+for_window [class="Connman-gtk"] floating enable
 for_window [class="Cssh"] floating enable
-for_window [class="feh"] floating enable
 for_window [class="KeePassXC"] floating enable
 for_window [class="MPlayer"] floating enable
-for_window [class="Nitrogen"] floating enable
 for_window [class="Pavucontrol"] floating enable
 for_window [class="Pinentry"] floating enable
 for_window [class="Skype" title="Options"] floating enable
 for_window [class="smplayer"] floating enable
 for_window [class="Steam"] floating enable
-for_window [class="VirtualBox"] floating enable
 for_window [class="vlc"] floating enable
 for_window [class="x2goclient"] floating enable
 
-exec_always --no-startup-id xrdb ~/.Xdefaults
-exec_always --no-startup-id nitrogen --restore
-exec_always --no-startup-id compton -f
 exec_always --no-startup-id /usr/sbin/daemonize -p /tmp/.xautolock.$USER.pid \
         -l /tmp/.xautolock.$USER.lock /usr/bin/xautolock -time 5 \
-        -corners 0-00 -locker "i3lock -e -c 002b36 -i ~/Pictures/i3lock"
+        -corners 0-00 -locker "sway3lock -e -c 002b36 -i ~/Pictures/i3lock"
 exec_always --no-startup-id eval `keychain --eval --agents ssh,gpg`
 exec_always --no-startup-id nm-applet
-exec_always --no-startup-id /usr/sbin/rotated /sys/bus/iio/devices/iio:device0 /etc/conf.d/rotated
+exec_always --no-startup-id blueman-applet
+
+exec_always --no-startup-id ~/.screenlayout/sway.sh
+
+input "1386:18642:Wacom_HID_48D2_Finger" {
+        events disabled
+}
+
+input "1386:18642:Wacom_HID_48D2_Pen" {
+        events disabled
+}
+
+input "2:7:SynPS/2_Synaptics_TouchPad" {
+        dwt enabled
+        natural_scroll enabled
+        tap disabled
+}
+
+input "1739:52550:SYNA307B:00_06CB:CD46_Mouse" {
+        natural_scroll enabled
+        dwt enable
+}
+
+input "1739:52550:SYNA307B:00_06CB:CD46_Touchpad" {
+        dwt enabled
+        natural_scroll enabled
+        tap disabled
+}
+
+input "1133:50475:Logitech_USB_Receiver_Consumer_Control" {
+        natural_scroll enabled
+}
+
+input "1133:50475:Logitech_USB_Receiver_Mouse" {
+        natural_scroll enabled
+}
+
+input "1133:45081:MX_Master_2S_Mouse" {
+        pointer_accel 1 # I think this is supposed to be accel_speed
+        natural_scroll enabled
+}
+
+input * xkb_layout "us"
+input * xkb_variant "altgr-intl"
