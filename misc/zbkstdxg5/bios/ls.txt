@@ -1,0 +1,154 @@
+/media/sdb1:
+total 28
+drwx------ 7 markwkm plugdev 4096 Dec 31  1969 .
+drwx------ 3 markwkm plugdev 4096 Feb 25 20:45 .Spotlight-V100
+drwx------ 2 markwkm plugdev 4096 Feb 25 20:45 .fseventsd
+drwx------ 2 markwkm plugdev 4096 Feb 26 05:06 System Volume Information
+drwx------ 2 markwkm plugdev 4096 Feb 26 05:06 FOUND.000
+drwx------ 5 markwkm plugdev 4096 Feb 26 05:07 HP
+drwxr-xr-x 8 root    root    4096 Feb 26 10:59 ..
+
+/media/sdb1/.Spotlight-V100:
+total 28
+drwx------ 7 markwkm plugdev  4096 Dec 31  1969 ..
+-rw------- 1 markwkm plugdev 16384 Feb 25 20:45 VolumeConfiguration.plist
+drwx------ 3 markwkm plugdev  4096 Feb 25 20:45 Store-V2
+drwx------ 3 markwkm plugdev  4096 Feb 25 20:45 .
+
+/media/sdb1/.Spotlight-V100/Store-V2:
+total 16
+drwx------ 2 markwkm plugdev 8192 Feb 25 20:45 7A24BAA5-9098-4F0C-9D3B-54FE864363A0
+drwx------ 3 markwkm plugdev 4096 Feb 25 20:45 ..
+drwx------ 3 markwkm plugdev 4096 Feb 25 20:45 .
+
+/media/sdb1/.Spotlight-V100/Store-V2/7A24BAA5-9098-4F0C-9D3B-54FE864363A0:
+total 744
+-rw------- 1 markwkm plugdev      0 Feb 25 20:45 tmp.Lion
+-rw------- 1 markwkm plugdev      0 Feb 25 20:45 tmp.Cab
+-rw------- 1 markwkm plugdev      0 Feb 25 20:45 psid.db
+-rw------- 1 markwkm plugdev      0 Feb 25 20:45 live.0.indexUpdates
+-rw------- 1 markwkm plugdev   8192 Feb 25 20:45 live.0.indexTermIds
+-rw------- 1 markwkm plugdev   4096 Feb 25 20:45 live.0.indexPostings
+-rw------- 1 markwkm plugdev   8192 Feb 25 20:45 live.0.indexPositionTable
+-rw------- 1 markwkm plugdev   4096 Feb 25 20:45 live.0.indexPositions
+-rw------- 1 markwkm plugdev  32768 Feb 25 20:45 live.0.indexIds
+-rw------- 1 markwkm plugdev      0 Feb 25 20:45 live.0.indexHead
+-rw------- 1 markwkm plugdev   3277 Feb 25 20:45 live.0.indexGroups
+-rw------- 1 markwkm plugdev   8224 Feb 25 20:45 live.0.indexDirectory
+-rw------- 1 markwkm plugdev   1024 Feb 25 20:45 live.0.indexCompactDirectory
+-rw------- 1 markwkm plugdev  16384 Feb 25 20:45 live.0.indexBigDates
+-rw------- 1 markwkm plugdev  65536 Feb 25 20:45 live.0.indexArrays
+-rw------- 1 markwkm plugdev  65536 Feb 25 20:45 live.0.directoryStoreFile
+-rw------- 1 markwkm plugdev      0 Feb 25 20:45 Lion.created
+-rw------- 1 markwkm plugdev     28 Feb 25 20:45 indexState
+-rw------- 1 markwkm plugdev      0 Feb 25 20:45 Cab.created
+-rw------- 1 markwkm plugdev      0 Feb 25 20:45 0.indexUpdates
+-rw------- 1 markwkm plugdev   8192 Feb 25 20:45 0.indexTermIds
+-rw------- 1 markwkm plugdev   4096 Feb 25 20:45 0.indexPostings
+-rw------- 1 markwkm plugdev   8192 Feb 25 20:45 0.indexPositionTable
+-rw------- 1 markwkm plugdev   4096 Feb 25 20:45 0.indexPositions
+-rw------- 1 markwkm plugdev  32768 Feb 25 20:45 0.indexIds
+-rw------- 1 markwkm plugdev      0 Feb 25 20:45 0.indexHead
+-rw------- 1 markwkm plugdev   3277 Feb 25 20:45 0.indexGroups
+-rw------- 1 markwkm plugdev   8224 Feb 25 20:45 0.indexDirectory
+-rw------- 1 markwkm plugdev   1024 Feb 25 20:45 0.indexCompactDirectory
+-rw------- 1 markwkm plugdev  16384 Feb 25 20:45 0.indexBigDates
+-rw------- 1 markwkm plugdev  65536 Feb 25 20:45 0.indexArrays
+-rw------- 1 markwkm plugdev  65536 Feb 25 20:45 0.directoryStoreFile
+drwx------ 3 markwkm plugdev   4096 Feb 25 20:45 ..
+drwx------ 2 markwkm plugdev   8192 Feb 25 20:45 .
+-rw------- 1 markwkm plugdev   4096 Feb 25 20:45 tmp.spotlight.state
+-rw------- 1 markwkm plugdev      4 Feb 25 20:45 store_generation
+-rw------- 1 markwkm plugdev 102400 Feb 25 20:45 store.db
+-rw------- 1 markwkm plugdev 118784 Feb 25 20:45 .store.db
+-rw------- 1 markwkm plugdev  65536 Feb 25 20:45 reverseDirectoryStore
+
+/media/sdb1/.fseventsd:
+total 12
+drwx------ 7 markwkm plugdev 4096 Dec 31  1969 ..
+-rw------- 1 markwkm plugdev   36 Feb 25 20:45 fseventsd-uuid
+drwx------ 2 markwkm plugdev 4096 Feb 25 20:45 .
+
+/media/sdb1/System Volume Information:
+total 16
+drwx------ 7 markwkm plugdev 4096 Dec 31  1969 ..
+-rw------- 1 markwkm plugdev   12 Feb 26 05:06 WPSettings.dat
+-rw------- 1 markwkm plugdev   76 Feb 26 05:06 IndexerVolumeGuid
+drwx------ 2 markwkm plugdev 4096 Feb 26 05:06 .
+
+/media/sdb1/FOUND.000:
+total 42516
+drwx------ 7 markwkm plugdev     4096 Dec 31  1969 ..
+-rw------- 1 markwkm plugdev     4096 Feb 26 05:06 FILE0029.CHK
+-rw------- 1 markwkm plugdev     8192 Feb 26 05:06 FILE0028.CHK
+-rw------- 1 markwkm plugdev     4096 Feb 26 05:06 FILE0027.CHK
+-rw------- 1 markwkm plugdev 29143040 Feb 26 05:06 FILE0026.CHK
+-rw------- 1 markwkm plugdev    16384 Feb 26 05:06 FILE0025.CHK
+-rw------- 1 markwkm plugdev    16384 Feb 26 05:06 FILE0024.CHK
+-rw------- 1 markwkm plugdev  3166208 Feb 26 05:06 FILE0023.CHK
+-rw------- 1 markwkm plugdev     4096 Feb 26 05:06 FILE0022.CHK
+-rw------- 1 markwkm plugdev  2310144 Feb 26 05:06 FILE0021.CHK
+-rw------- 1 markwkm plugdev  5304320 Feb 26 05:06 FILE0020.CHK
+-rw------- 1 markwkm plugdev     4096 Feb 26 05:06 FILE0019.CHK
+-rw------- 1 markwkm plugdev  3424256 Feb 26 05:06 FILE0018.CHK
+-rw------- 1 markwkm plugdev     4096 Feb 26 05:06 FILE0017.CHK
+-rw------- 1 markwkm plugdev    16384 Feb 26 05:06 FILE0016.CHK
+-rw------- 1 markwkm plugdev     4096 Feb 26 05:06 FILE0015.CHK
+-rw------- 1 markwkm plugdev    20480 Feb 26 05:06 FILE0014.CHK
+-rw------- 1 markwkm plugdev    16384 Feb 26 05:06 FILE0013.CHK
+-rw------- 1 markwkm plugdev     8192 Feb 26 05:06 FILE0012.CHK
+-rw------- 1 markwkm plugdev     4096 Feb 26 05:06 FILE0011.CHK
+-rw------- 1 markwkm plugdev     4096 Feb 26 05:06 FILE0010.CHK
+-rw------- 1 markwkm plugdev     4096 Feb 26 05:06 FILE0009.CHK
+-rw------- 1 markwkm plugdev     4096 Feb 26 05:06 FILE0008.CHK
+-rw------- 1 markwkm plugdev     4096 Feb 26 05:06 FILE0007.CHK
+-rw------- 1 markwkm plugdev     4096 Feb 26 05:06 FILE0006.CHK
+-rw------- 1 markwkm plugdev     4096 Feb 26 05:06 FILE0005.CHK
+-rw------- 1 markwkm plugdev     4096 Feb 26 05:06 FILE0004.CHK
+-rw------- 1 markwkm plugdev     4096 Feb 26 05:06 FILE0003.CHK
+-rw------- 1 markwkm plugdev     4096 Feb 26 05:06 FILE0002.CHK
+-rw------- 1 markwkm plugdev     4096 Feb 26 05:06 FILE0001.CHK
+-rw------- 1 markwkm plugdev     8192 Feb 26 05:06 FILE0000.CHK
+drwx------ 2 markwkm plugdev     4096 Feb 26 05:06 .
+
+/media/sdb1/HP:
+total 20
+drwx------ 7 markwkm plugdev 4096 Dec 31  1969 ..
+drwx------ 2 markwkm plugdev 4096 Feb 26 05:07 DEVFW
+drwx------ 2 markwkm plugdev 4096 Feb 26 05:07 BiosUpdate
+drwx------ 5 markwkm plugdev 4096 Feb 26 05:07 BIOS
+drwx------ 5 markwkm plugdev 4096 Feb 26 05:07 .
+
+/media/sdb1/HP/DEVFW:
+total 28468
+-rw------- 1 markwkm plugdev 29141216 Feb 26 05:05 firmware.bin
+drwx------ 5 markwkm plugdev     4096 Feb 26 05:07 ..
+drwx------ 2 markwkm plugdev     4096 Feb 26 05:07 .
+
+/media/sdb1/HP/BiosUpdate:
+total 8
+drwx------ 5 markwkm plugdev 4096 Feb 26 05:07 ..
+drwx------ 2 markwkm plugdev 4096 Feb 26 05:07 .
+
+/media/sdb1/HP/BIOS:
+total 20
+drwx------ 2 markwkm plugdev 4096 Feb 26 05:07 Previous
+drwx------ 2 markwkm plugdev 4096 Feb 26 05:07 New
+drwx------ 2 markwkm plugdev 4096 Feb 26 05:07 Current
+drwx------ 5 markwkm plugdev 4096 Feb 26 05:07 ..
+drwx------ 5 markwkm plugdev 4096 Feb 26 05:07 .
+
+/media/sdb1/HP/BIOS/Previous:
+total 8
+drwx------ 5 markwkm plugdev 4096 Feb 26 05:07 ..
+drwx------ 2 markwkm plugdev 4096 Feb 26 05:07 .
+
+/media/sdb1/HP/BIOS/New:
+total 8
+drwx------ 5 markwkm plugdev 4096 Feb 26 05:07 ..
+drwx------ 2 markwkm plugdev 4096 Feb 26 05:07 .
+
+/media/sdb1/HP/BIOS/Current:
+total 8
+drwx------ 5 markwkm plugdev 4096 Feb 26 05:07 ..
+drwx------ 2 markwkm plugdev 4096 Feb 26 05:07 .

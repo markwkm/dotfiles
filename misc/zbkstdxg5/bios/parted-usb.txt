@@ -1,0 +1,13 @@
+(parted) p
+Model: Kingston DataTraveler 2.0 (scsi)
+Disk /dev/sdb: 1000MB
+Sector size (logical/physical): 512B/512B
+Partition Table: msdos
+Disk Flags:
+
+Number  Start   End     Size   Type     File system  Flags
+ 1      1049kB  1000MB  999MB  primary  fat32
+
+
+# mount
+/dev/sdb1 on /media/sdb1 type vfat (rw,nosuid,nodev,noexec,relatime,uid=1001,gid=104,fmask=0177,dmask=0077,codepage=437,iocharset=iso8859-1,shortname=mixed,quiet,utf8,errors=remount-ro,user)

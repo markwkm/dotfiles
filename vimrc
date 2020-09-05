@@ -8,21 +8,22 @@ filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Plugin 'Lokaltog/vim-distinguished'
+Plugin 'altercation/vim-colors-solarized'
+
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-fugitive'
-Plugin 'bling/vim-airline'
-Plugin 'xolox/vim-misc'
-Plugin 'xolox/vim-notes'
-Plugin 'altercation/vim-colors-solarized'
-"Plugin 'vim-scripts/SQLUtilities'
-Plugin 'jphustman/SQLUtilities'
-Plugin 'vim-scripts/Align'
-Plugin 'ycm-core/YouCompleteMe'
-Plugin 'ervandew/supertab'
-Plugin 'scrooloose/syntastic'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'majutsushi/tagbar'
-Plugin 'vim-scripts/taglist.vim'
+Plugin 'ludovicchabant/vim-gutentags'
+Plugin 'mhinz/vim-signify'
+Plugin 'scrooloose/syntastic'
+
+Plugin 'jphustman/SQLUtilities'
+
+Plugin 'JuliaEditorSupport/julia-vim'
+Plugin 'gu-fan/riv.vim'
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -65,20 +66,22 @@ hi SpellBad term=underline,bold cterm=underline,bold ctermfg=red gui=undercurl g
 let g:notes_unicode_enabled = 0
 let g:notes_smart_quotes = 0
 
-set guifont=Droid\ Sans\ Mono\ Slashed\ 10
+set guifont=M+\ 1m\ Medium\ 10
 
 if has("autocmd")
-	autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-	autocmd FileType context setlocal tw=72 spell
-	autocmd FileType gitcommit setlocal tw=72 colorcolumn=72 spell
-	autocmd FileType lua setlocal expandtab ts=2 shiftwidth=2
-	autocmd FileType mail setlocal tw=72 colorcolumn=72 expandtab spell
-	autocmd FileType notes setlocal expandtab spell
-	autocmd FileType python setlocal expandtab ts=4 shiftwidth=4
-	autocmd FileType r setlocal expandtab spell
-	autocmd FileType sql setlocal expandtab ts=4 shiftwidth=4 spell
-	autocmd FileType tex setlocal expandtab ts=2 shiftwidth=2 spell
-	autocmd FileType text setlocal expandtab spell
+    autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+    autocmd FileType cmake setlocal expandtab ts=4 shiftwidth=4 spell
+    autocmd FileType context setlocal tw=72 spell
+    autocmd FileType gitcommit setlocal tw=72 colorcolumn=72 spell
+    autocmd FileType lua setlocal expandtab ts=2 shiftwidth=2
+    autocmd FileType mail setlocal tw=72 colorcolumn=72 expandtab spell
+    autocmd FileType notes setlocal expandtab spell
+    autocmd FileType python setlocal expandtab ts=4 shiftwidth=4
+    autocmd FileType r setlocal expandtab spell
+    autocmd FileType rst setlocal expandtab spell
+    autocmd FileType sql setlocal expandtab ts=4 shiftwidth=4 spell
+    autocmd FileType tex setlocal expandtab ts=2 shiftwidth=2 spell
+    autocmd FileType text setlocal expandtab spell
 endif
 
 let NERDTreeIgnore = ['\.pyc$', 'tags', 'cscope.files', 'cscope.out', '\.patch$', 'autom4te.cache', '\.o$', '\.log$', '_CPack_Packages', 'CMakeFiles', 'cmake_install.cmake', 'CMakeCache.txt', 'CPackConfig.cmake', 'install_manifest.txt', '\.war']
@@ -93,3 +96,6 @@ let g:NERDTreeDirArrows=0
 "set noshowmode
 " Move the laststatus line if using tabs in urxvt.
 "set laststatus=2
+let g:airline_theme='solarized'
+
+"let g:gutentags_ctags_executable="/usr/local/bin/ctags"
