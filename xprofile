@@ -1,31 +1,55 @@
-eval `keychain --quiet --quick --eval --agents ssh,gpg`
+#!/bin/sh
+
+config_devices() {
+	# libinput
+
+	for id in $(xinput --list | grep "slave  pointer" | sed -n 's/.*id=\([0-9]\+\).*/\1/p'); do
+		xinput set-prop "$id" "libinput Natural Scrolling Enabled" 1 2> /dev/null
+		xinput set-prop "$id" "libinput Click Method Enabled" 0 1 2> /dev/null
+		xinput set-prop "$id" "libinput Accel Speed" 1 2> /dev/null
+	done
+	for id in $(xinput --list | grep "slave  pointer" | grep "Wacom HID" | sed -n 's/.*id=\([0-9]\+\).*/\1/p'); do
+		xinput disable "$id"
+	done
+}
+
+# GTK 3
+export GDK_SCALE=2
+export GDK_DPI_SCALE=0.5
+
+# QT 5
+export QT_AUTO_SCREEN_SCALE_FACTOR=0
+export QT_SCALE_FACTOR=2
 
 export BROWSER="/usr/bin/firefox-bin"
 export MOZ_USE_XINPUT2=1
+export XDG_DATA_DIRS="/usr/local/share:/usr/share:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share"
 
-~/.screenlayout/hpspctr13tx360.sh &
+which dbus-launch > /dev/null 2>&1
+if [ $? -eq 0 ]; then
+	export $(dbus-launch)
+fi
 
-# Attempt to enable natural scrolling in all pointers
-for id in $(xinput --list | grep "slave  pointer" | sed -n 's/.*id=\([0-9]\+\).*/\1/p'); do
-	xinput set-prop "$id" "libinput Natural Scrolling Enabled" 1 2> /dev/null
-	xinput set-prop "$id" "libinput Click Method Enabled" 0 1 2> /dev/null
-	xinput set-prop "$id" "libinput Accel Speed" 1 2> /dev/null
-done
+which libinput-gestures-setup > /dev/null 2>&1
+if [ $? -eq 0 ]; then
+	libinput-gestures-setup start > /dev/null 2>&1
+fi
 
-# Disable all Wacom devices
-for id in $(xinput --list | grep "slave  pointer" | grep "Wacom HID" | sed -n 's/.*id=\([0-9]\+\).*/\1/p'); do
-	xinput disable "$id"
-done
-
-libinput-gestures-setup start
-
-setxkbmap -layout us -variant altgr-intl
+setxkbmap -layout us -variant altgr-intl -option caps:backspace
+#setxkbmap -option shift:both_capslock
+xmodmap -e "clear lock"
+#xmodmap ~/.xmodmaprc
 
 if [ -d /usr/share/fonts/mplus ]; then
 	xset +fp /usr/share/fonts/mplus
 fi
 
+OLDSHELL=$SHELL
+SHELL="/bin/sh"
+eval `keychain --quiet --quick --eval --agents ssh,gpg`
+SHELL=$OLDSHELL
+
 # disable audible bell
 xset b off
 
-libinput-gestures-setup start
+config_devices &
