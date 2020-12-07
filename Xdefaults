@@ -1,27 +1,34 @@
-Xft.dpi:       120
+!Xft.dpi:       96
+Xft.dpi:       192
 Xft.antialias: 1
 Xft.hinting:   1
 Xft.hintstyle: hintfull
 Xft.rgba:      rgb
+Xft.lcdfilter: lcddefault
 
-urxvt.termName: xterm
+Xcursor.theme: Paper
+Xcursor.size: 32
+
+URXvt.termName: xterm
 
 ! xlsfonts or fc-list to list fonts
-urxvt.font: xft:Hack:Regular:size=10
+!urxvt.font: xft:Droid\ Sans\ Mono:size=12
+!urxvt.font: xft:Hack:size=12
+urxvt.font: xft:M+ 1mn:medium:size=12
 
-urxvt.depth: 32
-urxvt.saveLines: 1000
-urxvt.scrollBar: False
-urxvt.geometry: 80x24
-urxvt.secondaryWheel: 1
-urxvt.cursorBlink: True
-urxvt.cursorUnderline: False
+URXvt.depth: 32
+URXvt.saveLines: 1000
+URXvt.scrollBar: False
+URXvt.geometry: 80x24
+URXvt.secondaryWheel: 1
+URXvt.cursorBlink: True
+URXvt.cursorUnderline: False
 
-urxvt.transparent: False
+URXvt.transparent: False
 ! Use transset because [] notation causes strange behavior with sudo vi and
-! urxvt
-!urxvt.background: [88]#002b36
-urxvt.background: #002b36
+! URXvt
+!URXvt.background: [88]#002b36
+URXvt.background: #002b36
 
 *foreground: #657b83
 *background: #002b36
@@ -50,9 +57,9 @@ urxvt.background: #002b36
 
 URxvt.keysym.Control-Shift-Up: perl:font:increment
 URxvt.keysym.Control-Shift-Down: perl:font:decrement
-!URcvt.perl-lib: /usr/lib64/urxvt/perl
 URxvt.perl-ext-common:default,matcher,selection-to-clipboard,selection-autotransform
-URxvt.selection-autotransform.0: s/ +$/\/gm
+!URxvt.selection-autotransform.0: s/ +$\/\/g
+URXvt.tripleclickwords: True
 URxvt.underlineURLs: False
 URxvt.url-launcher: /usr/bin/firefox-bin
 
@@ -62,5 +69,4 @@ nedit*text.cursorForeground: #586e75
 nedit*text.highlightBackground: #586e75
 nedit*text.highlightForeground: #93a1a1
 
-!rofi.font: M+ 1m Medium 16
-rofi.font: Droid Sans 16
+rofi.font: Droid Sans 32
