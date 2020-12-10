@@ -1,0 +1,11 @@
+Disk /dev/sdb: 512GB
+Sector size (logical/physical): 512B/4096B
+Partition Table: gpt
+Disk Flags:
+
+Number  Start   End    Size    File system  Name                          Flags
+ 1      1049kB  379MB  377MB   fat32        EFI system partition          boot, esp
+ 2      379MB   513MB  134MB                Microsoft reserved partition  msftres
+ 3      513MB   491GB  491GB   ntfs         Basic data partition          msftdata
+ 4      491GB   492GB  1028MB  ntfs         Basic data partition          hidden, diag
+ 5      492GB   512GB  20.0GB  ntfs         Basic data partition          hidden, msftdata
