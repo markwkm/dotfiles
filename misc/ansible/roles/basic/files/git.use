@@ -1,5 +1,0 @@
-dev-libs/libpcre2 pcre16
-app-text/xmlto text
-dev-qt/qtgui dbus
-x11-libs/libxcb xkb
-

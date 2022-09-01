@@ -1,8 +1,0 @@
----
-- name: Rebuilding @world
-  portage:
-    package: "@world"
-    deep: yes
-    newuse: yes
-    update: yes
-    verbose: yes
