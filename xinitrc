@@ -1,3 +1,3 @@
 sleep 2
 sh ~/.xprofile
-exec i3
+exec dbus-run-session -- i3

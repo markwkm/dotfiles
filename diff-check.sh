@@ -1,6 +1,6 @@
 #!/bin/sh
 
-DOTFILES=`dirname $BASH_SOURCE`
+DOTFILES=`dirname $0`
 LISTING=`ls $DOTFILES | grep -v $(basename $0) | grep -v README.md | grep -v LICENSE | grep -v misc`
 
 heading() {
