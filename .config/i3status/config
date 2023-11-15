@@ -1,0 +1,80 @@
+# i3status configuration file.
+# see "man i3status" for documentation.
+
+# It is important that this file is edited as UTF-8.
+# The following line should contain a sharp s:
+# ß
+# If the above line is not correctly displayed, fix your editor first!
+
+general {
+        colors = true
+        interval = 2
+
+        color_good = "#859900"
+        color_bad = "#dc322f"
+        color_degraded = "#b58900"
+}
+
+#order += "run_watch DHCP"
+order += "wireless tun0"
+order += "wireless wlan0"
+#order += "wireless wlan1"
+#order += "ethernet enp0s20u1c4i2"
+order += "ethernet eth0"
+order += "battery 0"
+order += "load"
+order += "volume master"
+order += "tztime local"
+order += "tztime utc"
+
+wireless tun0 {
+        format_up = "VPN: %ip"
+        format_down = "VPN: down"
+}
+
+wireless wlan0 {
+        format_up = "WiFi: (%quality at %essid) %ip"
+        format_down = "WiFi: down"
+}
+
+wireless wlan1 {
+        format_up = "WiFi: (%quality at %essid) %ip"
+        format_down = "WiFi: down"
+}
+
+ethernet enp0s20u1c4i2 {
+        format_up = "iPhone: %ip"
+        format_down = "iPhone: down"
+}
+
+ethernet eth0 {
+        # if you use %speed, i3status requires root privileges
+        format_up = "Wired: %ip (%speed)"
+        format_down = "Wired: down"
+}
+
+battery 0 {
+        format = "%status %percentage %remaining"
+}
+
+run_watch DHCP {
+        pidfile = "/var/run/dhcpcd*.pid"
+}
+
+tztime local {
+        format = "%a %Y-%b-%d %I:%M %p %H:%M %Z"
+}
+
+tztime utc {
+        format = "%a %H:%M %Z"
+        timezone = "UTC"
+}
+
+load {
+        format = "%1min"
+}
+
+volume master{
+        device = "pulse"
+        mixer = "Master"
+}

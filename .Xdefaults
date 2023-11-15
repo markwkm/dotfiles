@@ -1,0 +1,70 @@
+!Xft.dpi:       96
+Xft.dpi:       128
+Xft.antialias: 1
+Xft.hinting:   1
+Xft.hintstyle: hintfull
+Xft.rgba:      rgb
+
+Xcursor.theme: Paper
+Xcursor.size: 16
+
+urxvt.termName: xterm
+
+! xlsfonts or fc-list to list fonts
+!urxvt.font: xft:Hack:Regular:size=10
+urxvt.font: xft:M PLUS 1 Code:Regular:size=10
+
+urxvt.depth: 32
+urxvt.saveLines: 1000
+urxvt.scrollBar: False
+urxvt.geometry: 80x24
+urxvt.secondaryWheel: 1
+urxvt.cursorBlink: True
+urxvt.cursorUnderline: False
+
+urxvt.transparent: False
+! Use transset because [] notation causes strange behavior with sudo vi and
+! urxvt
+!urxvt.background: [88]#002b36
+urxvt.background: #002b36
+
+*foreground: #657b83
+*background: #002b36
+*cursorColor: #586e75
+*pointerColorBackground: #586e75
+*pointerColorForeground: #93a1a1
+*bellIsUrgent: true
+*urgentOnBell: true
+
+*color0: #073642
+*color1: #dc322f
+*color2: #859900
+*color3: #b58900
+*color4: #268bd2
+*color5: #d33682
+*color6: #2aa198
+*color7: #eee8d5
+*color9: #cb4b16
+*color8: #002b36
+*color10: #586e75
+*color11: #657b83
+*color12: #839496
+*color13: #6c71c4
+*color14: #93a1a1
+*color15: #fdf6e3
+
+URxvt.keysym.Control-Shift-Up: perl:font:increment
+URxvt.keysym.Control-Shift-Down: perl:font:decrement
+!URcvt.perl-lib: /usr/lib64/urxvt/perl
+URxvt.perl-ext-common:default,matcher,selection-to-clipboard,selection-autotransform
+URxvt.selection-autotransform.0: s/ +$/\/gm
+URxvt.underlineURLs: False
+URxvt.url-launcher: /usr/bin/firefox-bin
+
+nedit*text.background: #002b366
+nedit*text.foreground: #657b83
+nedit*text.cursorForeground: #586e75
+nedit*text.highlightBackground: #586e75
+nedit*text.highlightForeground: #93a1a1
+
+rofi.font: Droid Sans 16

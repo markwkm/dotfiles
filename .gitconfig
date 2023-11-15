@@ -1,0 +1,13 @@
+[user]
+	email = markwkm@gmail.com
+	name = Mark Wong
+[push]
+	default = simple
+[commit]
+	verbose = true
+[pull]
+	ff = only
+[init]
+	defaultBranch = main
+[tag]
+	sort = -version:refname

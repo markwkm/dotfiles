@@ -1,0 +1,20 @@
+application/ms-tnef; ~/.local/bin/mutt-launch %s
+application/msword; ~/.bin/mutt-launch %s libreoffice
+application/octet-stream; ~/.local/bin/mutt-launch %s mplayer -quiet
+application/pdf; ~/.local/bin/mutt-launch %s evince
+application/vnd.ms-excel; ~/.local/bin/mutt-launch %s libreoffice
+application/vnd.oasis.opendocument.presentation; ~/.local/bin/mutt-launch %s libreoffice
+application/vnd.oasis.opendocument.spreadsheet; ~/.local/bin/mutt-launch %s libreoffice
+application/vnd.oasis.opendocument.text; ~/.local/bin/mutt-launch %s libreoffice
+application/vnd.openxmlformats-officedocument.wordprocessingml.document; ~/.local/bin/mutt-launch %s libreoffice
+application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; ~/.local/bin/mutt-launch %s libreoffice
+application/x-sh; ~/.local/bin/mutt-launch %s gvim -R -n
+
+image/jpeg; ~/.local/bin/mutt-launch %s feh -x -.
+image/png; ~/.local/bin/mutt-launch %s feh -x -.
+image/tiff; ~/.local/bin/mutt-launch %s feh -x -.
+
+text/html; ~/.local/bin/mutt-launch %s dillo
+text/html; w3m -dump %s; nametemplate=%s.html; copiousoutput
+
+text/plain; ~/.local/bin/mutt-launch %s gvim -R -n
