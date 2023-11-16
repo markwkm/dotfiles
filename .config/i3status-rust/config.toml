@@ -1,13 +1,5 @@
-icons_format = "{icon}"
-
 [theme]
 theme = "solarized-dark"
-
-[icons]
-icons = "awesome4"
-#[icons.overrides]
-#bat = ["|E|", "|_|", "|=|", "|F|"]
-#bat_charging = "|^| "
 
 [[block]]
 block = "cpu"
@@ -25,12 +17,18 @@ format = " $icon $available.eng(w:2) "
 
 [[block]]
 block = "memory"
-format = "$icon $mem_total_used_percents.eng(w:2) $swap_used_percents.eng(w:2)"
+format = "SWAP $swap_used_percents.eng(w:2)"
 
 [[block]]
 block = "time"
 interval = 60
-format = " $timestamp.datetime(f:'%a %Y %b %d %I:%M %p') "
+format = " $timestamp.datetime(f:'%a %Y-%b-%d %I:%M %p') "
+
+[[block]]
+block = "battery"
+driver = "sysfs"
+device = "BAT0"
+model = "Primary"
 
 [[block]]
 block = "sound"
