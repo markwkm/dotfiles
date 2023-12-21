@@ -139,10 +139,10 @@ PS1='$(prompt_command_ps1)'
 #exec 2>>(while read line; do
 #	print '\e[91m'${(q)line}'\e[0m' > /dev/tty; print -n $'\0'; done &)
 
-#VIRTUALENVWRAPPER="/usr/bin/virtualenvwrapper.sh"
-#if [ -f "$VIRTUALENVWRAPPER" ]; then
-#	source $VIRTUALENVWRAPPER
-#fi
+VIRTUALENVWRAPPER="/usr/bin/virtualenvwrapper.sh"
+if [ -f "$VIRTUALENVWRAPPER" ]; then
+	source $VIRTUALENVWRAPPER
+fi
 
 # For awesome
 which wmname > /dev/null 2>&1
