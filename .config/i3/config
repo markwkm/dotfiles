@@ -245,9 +245,11 @@ for_window [class="vlc"] floating enable
 exec_always --no-startup-id dunst
 exec_always --no-startup-id nitrogen --restore
 #exec_always --no-startup-id compton -f
+exec_always --no-startup-id ~/.cargo/bin/inputplug \
+		-c ~/.local/bin/config-input
 exec_always --no-startup-id /usr/sbin/daemonize -p /tmp/.xautolock.$USER.pid \
-        -l /tmp/.xautolock.$USER.lock /usr/bin/xautolock -time 5 -notify 10 \
-        -locker "i3lock -e -c 002b36"
+		-l /tmp/.xautolock.$USER.lock /usr/bin/xautolock -time 5 -notify 10 \
+		-locker "i3lock -e -c 002b36"
 exec_always --no-startup-id eval $(keychain -q --eval --agents ssh,gpg)
 exec_always --no-startup-id nm-applet
 exec_always --no-startup-id /usr/bin/parcellite

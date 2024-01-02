@@ -1,0 +1,21 @@
+#!/bin/sh
+
+echo $#
+
+if [ $# -lt 3 ]; then
+	exit 0
+fi
+
+EVENT=$1
+shift
+DEVID=$1
+shift
+DEVTYPE=$1
+shift
+NAME=$@
+
+if [ "x$EVENT" = "xXIDeviceEnabled" ] && [ "x$DEVTYPE" = "xXISlavePointer" ]; then
+	xinput set-prop "$DEVID" "libinput Natural Scrolling Enabled" 1 2> /dev/null
+	xinput set-prop "$DEVID" "libinput Click Method Enabled" 0 1 2> /dev/null
+	xinput set-prop "$DEVID" "libinput Accel Speed" 1 2> /dev/null
+fi
