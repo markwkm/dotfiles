@@ -1,0 +1,8 @@
+#!/bin/sh
+
+FILENAME=$1
+
+tnef --overwrite $FILENAME
+for file in `tnef -t $FILENAME | cut -f 1`; do
+	gvim $file
+done
