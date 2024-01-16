@@ -144,6 +144,19 @@ if [ -f "$VIRTUALENVWRAPPER" ]; then
 	source $VIRTUALENVWRAPPER
 fi
 
+CARGOENV="${HOME}/.cargo/env"
+if [ -f "$CARGOENV" ]; then
+	source $CARGOENV
+fi
+
+case ":${PATH}:" in
+    *:"$HOME/.local/bin":*)
+        ;;
+    *)
+        export PATH="$HOME/.local/bin:$PATH"
+        ;;
+esac
+
 # For awesome
 which wmname > /dev/null 2>&1
 if [ $? -eq 0 ]; then
@@ -151,10 +164,13 @@ if [ $? -eq 0 ]; then
 fi
 
 alias ls="ls --color=auto"
-eval `dircolors ~/.dir_colors`
+
+DIRCOLORS="${HOME}/.dir_colors"
+if [ -f "$DIRCOLORS" ]; then
+	eval $(dircolors "$DIRCOLORS")
+fi
 
 which keychain > /dev/null 2>&1
 if [ $? -eq 0 ]; then
 	eval `keychain -q --eval --agents ssh,gpg`
 fi
-export PATH="/home/markwkm/.cargo/bin:$PATH"
