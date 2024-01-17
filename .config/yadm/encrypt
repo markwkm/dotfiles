@@ -1,5 +1,5 @@
 .config/rclone/rclone.conf
-src/mypganimals/inventory.yaml
+.local/src/mypganimals/inventory.yaml
 .k/*
 .mbsyncrc
 .muttrc/*
