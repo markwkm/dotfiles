@@ -9,4 +9,4 @@ vim +PluginUpdate +qall 2>&1 | tee -a /tmp/update.log
 rustup update 2>&1 | tee -a /tmp/update.log
 cargo install-update -a 2>&1 | tee -a /tmp/update.log
 #sudo xbps-pkgdb -a
-(cd /home/markwkm/src/void-packages && git pull) 2>&1 | tee -a /tmp/update.log
+(cd ${HOME}/.local/src/void-packages && git pull) 2>&1 | tee -a /tmp/update.log
