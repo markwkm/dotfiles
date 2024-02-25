@@ -17,9 +17,10 @@ require("lazy").setup("plugins")
 vim.opt.number = true
 vim.opt.shiftwidth = 4
 vim.opt.spell = true
+vim.opt.termguicolors = true
 vim.opt.textwidth = 79
 
-vim.cmd[[colorscheme NeoSolarized]]
+vim.cmd[[colorscheme solarized]]
 vim.cmd[[filetype on]]
 vim.cmd[[syntax on]]
 vim.cmd[[Neotree]]
