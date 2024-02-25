@@ -20,7 +20,8 @@ vim.opt.spell = true
 vim.opt.termguicolors = true
 vim.opt.textwidth = 79
 
-vim.cmd[[colorscheme solarized]]
+--vim.cmd[[colorscheme solarized]]
+vim.cmd[[colorscheme NeoSolarized]]
 vim.cmd[[filetype on]]
 vim.cmd[[syntax on]]
 vim.cmd[[Neotree]]
