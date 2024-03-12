@@ -1,12 +1,14 @@
 #!/bin/sh
 set -x
-#sudo sv restart chronyd
-yes | sudo vpm up 2>&1 | tee -a /tmp/update.log
-yes | sudo vpm rm -Ro 2>&1 | tee -a /tmp/update.log
+#doas sv restart chronyd
+yes | doas vpm up 2>&1 | tee -a /tmp/update.log
+yes | doas vpm rm -Ro 2>&1 | tee -a /tmp/update.log
 flatpak update --assumeyes --user 2>&1 | tee -a /tmp/update.log
 flatpak uninstall --assumeyes --unused 2>&1 | tee -a /tmp/update.log
-vim +PluginUpdate +qall 2>&1 | tee -a /tmp/update.log
+#vim +PluginUpdate +qall 2>&1 | tee -a /tmp/update.log
 rustup update 2>&1 | tee -a /tmp/update.log
 cargo install-update -a 2>&1 | tee -a /tmp/update.log
-#sudo xbps-pkgdb -a
+#doas xbps-pkgdb -a
 (cd ${HOME}/.local/src/void-packages && git pull) 2>&1 | tee -a /tmp/update.log
+#doas aide --update
+#doas aide --check
