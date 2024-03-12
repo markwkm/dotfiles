@@ -14,153 +14,174 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup("plugins")
 
 vim.opt.colorcolumn = '+1'
+--vim.opt.expandtab = false
+vim.opt.filetype = 'off'
 vim.opt.number = true
 vim.opt.spell = true
+vim.opt.syntax = 'on'
 vim.opt.termguicolors = true
 vim.opt.tabstop = 4
 vim.opt.textwidth = 79
 
 --vim.cmd[[colorscheme solarized]]
+vim.cmd[[set noexpandtab]]
 vim.cmd[[colorscheme NeoSolarized]]
-vim.cmd[[filetype on]]
-vim.cmd[[syntax on]]
-vim.cmd[[Neotree]]
+
+--vim.cmd[[highlight Normal guibg=#002b36]]
+--vim.cmd[[highlight Normal guibg=#fdf6e3]]
+
+local group = vim.api.nvim_create_augroup("myGroup", { clear = true })
 
 vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
-  filetype = c,
-  callback = function()
-    vim.opt.colorcolumn = '+1'
-    vim.opt.expandtab = false
-    vim.opt.shiftwidth = 4
-    vim.opt.tabstop = 4
-    vim.opt.textwidth = 79
-  end,
+  group = "myGroup",
+  pattern = "*",
+  command = "setlocal noexpandtab",
+})
+
+vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
+  pattern = {"*.c", "*.h", "*.cpp"},
+  command = "setlocal colorcolumn=+1",
 })
 vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
-  filetype = cpp,
-  callback = function()
-    vim.opt.colorcolumn = '+1'
-    vim.opt.expandtab = false
-    vim.opt.shiftwidth = 4
-    vim.opt.tabstop = 4
-    vim.opt.textwidth = 79
-  end,
+  pattern = {"*.c", "*.h", "*.cpp"},
+  command = "setlocal noexpandtab",
 })
+vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
+  pattern = {"*.c", "*.h", "*.cpp"},
+  command = "setlocal shiftwidth=4",
+})
+vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
+  pattern = {"*.c", "*.h", "*.cpp"},
+  command = "setlocal tabstop=4",
+})
+vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
+  pattern = {"*.c", "*.h", "*.cpp"},
+  command = "setlocal textwidth=4",
+})
+
 vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
   filetype = cmake,
-  callback = function()
-    vim.opt.colorcolumn = '+1'
-    vim.opt.expandtab = true
-    vim.opt.tabstop = 4
-    vim.opt.shiftwidth = 4
-    vim.opt.textwidth = 79
-  end,
+  command = [[
+    setlocal colorcolumn=+1
+    setlocal expandtab
+    setlocal shiftwidth=4
+    setlocal tabstop=4
+    setlocal textwidth=79
+  ]],
 })
 vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
   filetype = context,
-  callback = function()
-    vim.opt.colorcolumn = '+1'
-    vim.opt.expandtab = true
-    vim.opt.tabstop = 4
-    vim.opt.shiftwidth = 4
-    vim.opt.textwidth = 72
-  end,
+  command = [[
+    setlocal colorcolumn=+1
+    setlocal expandtab
+    setlocal textwidth=72
+    setlocal spell
+  ]],
 })
 vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
   filetype = gitcommit,
-  callback = function()
-    vim.opt.colorcolumn = '+1'
-    vim.opt.expandtab = true
-    vim.opt.tabstop = 4
-    vim.opt.shiftwidth = 4
-    vim.opt.textwidth = 72
-  end,
+  command = [[
+    setlocal colorcolumn=+1
+    setlocal expandtab
+    setlocal textwidth=72
+    setlocal spell
+  ]],
 })
 vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
   filetype = julia,
-  callback = function()
-    vim.opt.colorcolumn = '+1'
-    vim.opt.expandtab = true
-    vim.opt.tabstop = 4
-    vim.opt.shiftwidth = 4
-    vim.opt.textwidth = 79
-  end,
+  command = [[
+    setlocal colorcolumn=+1
+    setlocal expandtab
+    setlocal shiftwidth=4
+    setlocal tabstop=4
+    setlocal textwidth=79
+  ]],
 })
 vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
   filetype = lua,
-  callback = function()
-    vim.opt.colorcolumn = '+1'
-    vim.opt.expandtab = true
-    vim.opt.tabstop = 2
-    vim.opt.shiftwidth = 2
-    vim.opt.textwidth = 79
-  end,
+  command = [[
+    setlocal colorcolumn=+1
+    setlocal expandtab
+    setlocal shiftwidth=2
+    setlocal tabstop=2
+    setlocal textwidth=79
+  ]],
 })
 vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
   filetype = mail,
-  callback = function()
-    vim.opt.colorcolumn = '+1'
-    vim.opt.expandtab = true
-    vim.opt.tabstop = 4
-    vim.opt.shiftwidth = 4
-    vim.opt.textwidth = 72
-  end,
+  command = [[
+    setlocal colorcolumn=+1
+    setlocal expandtab
+    setlocal shiftwidth=4
+    setlocal tabstop=4
+    setlocal textwidth=72
+  ]],
 })
 vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
   filetype = python,
-  callback = function()
-    vim.opt.colorcolumn = '+1'
-    vim.opt.expandtab = true
-    vim.opt.tabstop = 4
-    vim.opt.shiftwidth = 4
-    vim.opt.textwidth = 79
-  end,
+  command = [[
+    setlocal colorcolumn=+1
+    setlocal expandtab
+    setlocal shiftwidth=4
+    setlocal tabstop=4
+    setlocal textwidth=79
+  ]],
 })
 vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
   filetype = r,
-  callback = function()
-    vim.opt.colorcolumn = '+1'
-    vim.opt.expandtab = true
-    vim.opt.tabstop = 4
-    vim.opt.shiftwidth = 4
-    vim.opt.textwidth = 79
-  end,
+  command = [[
+    setlocal colorcolumn=+1
+    setlocal expandtab
+    setlocal shiftwidth=4
+    setlocal tabstop=4
+    setlocal textwidth=79
+  ]],
 })
 vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
   filetype = rst,
-  callback = function()
-    vim.opt.colorcolumn = '+1'
-    vim.opt.expandtab = true
-    vim.opt.tabstop = 4
-    vim.opt.shiftwidth = 4
-    vim.opt.textwidth = 79
-  end,
+  command = [[
+    setlocal colorcolumn=+1
+    setlocal expandtab
+    setlocal shiftwidth=4
+    setlocal tabstop=4
+    setlocal textwidth=79
+  ]],
 })
 vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
   filetype = sgml,
-  callback = function()
-    vim.opt.colorcolumn = '+1'
-    vim.opt.expandtab = true
-    vim.opt.tabstop = 4
-    vim.opt.shiftwidth = 4
-    vim.opt.textwidth = 0
-  end,
+  command = [[
+    setlocal colorcolumn=+1
+    setlocal expandtab
+    setlocal shiftwidth=4
+    setlocal tabstop=4
+    setlocal textwidth=0
+  ]],
+})
+vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
+  filetype = sh,
+  command = [[
+    setlocal colorcolumn=+1
+    setlocal noexpandtab
+    setlocal shiftwidth=4
+    setlocal tabstop=4
+    setlocal textwidth=79
+  ]],
 })
 vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
   filetype = sql,
-  callback = function()
-    vim.opt.colorcolumn = '+1'
-    vim.opt.expandtab = true
-    vim.opt.tabstop = 4
-    vim.opt.shiftwidth = 4
-    vim.opt.textwidth = 79
-  end,
+  command = [[
+    setlocal colorcolumn=+1
+    setlocal expandtab
+    setlocal shiftwidth=4
+    setlocal tabstop=4
+    setlocal textwidth=79
+  ]],
 })
 vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
   filetype = tex,
   callback = function()
     vim.opt.colorcolumn = '+1'
-    vim.opt.expandtab = true
+    vim.opt_local.expandtab = true
     vim.opt.tabstop = 2
     vim.opt.shiftwidth = 2
     vim.opt.textwidth = 79
@@ -168,11 +189,11 @@ vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
 })
 vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
   filetype = text,
-  callback = function()
-    vim.opt.colorcolumn = '+1'
-    vim.opt.expandtab = true
-    vim.opt.tabstop = 4
-    vim.opt.shiftwidth = 4
-    vim.opt.textwidth = 79
-  end,
+  command = [[
+    setlocal colorcolumn=+1
+    setlocal expandtab
+    setlocal shiftwidth=4
+    setlocal tabstop=4
+    setlocal textwidth=79
+  ]],
 })

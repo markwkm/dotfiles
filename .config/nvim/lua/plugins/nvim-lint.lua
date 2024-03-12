@@ -12,6 +12,7 @@ return {
       cpp = { "clangtidy" },
       python = { "pylint" },
       markdown = { "vale" },
+      ruby = { "ruby" },
       sh = { "shellcheck" },
     }
 
