@@ -1,0 +1,19 @@
+#!/bin/sh
+
+set -x 
+
+DBT2VER=0.7.0
+TSVER=0.8.0
+
+for HOST in beryllium magnesium; do
+	vagrant upload \
+			"${HOME}/.local/src/dbt5/builds/appimage/dbt5-${DBT2VER}-x86_64.AppImage" \
+			/tmp/dbt5 \
+			${HOST}
+	vagrant upload \
+			"${HOME}/.local/src/touchstone-tools/builds/appimage/ts-tools-${TSVER}-x86_64.AppImage" \
+			/tmp/ts \
+			${HOST}
+	vagrant ssh -c "sudo mv /tmp/dbt5 /tmp/ts /usr/bin" ${HOST} &
+done
+wait

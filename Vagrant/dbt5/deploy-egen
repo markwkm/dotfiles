@@ -1,0 +1,14 @@
+#!/bin/sh
+
+set -x 
+
+EGENFILE="${HOME}/Downloads/763d26a5-8d33-45e1-bb5f-3bb983b4862d-tpc-e-tool.zip"
+
+for HOST in beryllium magnesium; do
+	vagrant upload "${EGENFILE}" /tmp/egen.zip ${HOST}
+	vagrant ssh -c "sudo mkdir /opt/egen" ${HOST}
+	vagrant ssh -c "sudo chmod 777 /opt/egen" ${HOST}
+	vagrant ssh -c "sudo -iu postgres unzip /tmp/egen.zip -d /opt/egen" ${HOST}
+	vagrant ssh -c "sudo -iu postgres dbt5 build-egen /opt/egen" ${HOST} done
+done
+wait
