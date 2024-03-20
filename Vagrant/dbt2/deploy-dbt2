@@ -1,0 +1,19 @@
+#!/bin/sh
+
+set -x 
+
+DBT2VER=0.61.1
+TSVER=0.8.0
+
+for HOST in lithium sodium potassium; do
+	vagrant upload \
+			"${HOME}/.local/src/dbt2/builds/appimage/dbt2-${DBT2VER}-x86_64.AppImage" \
+			/tmp/dbt2 \
+			${HOST}
+	vagrant upload \
+			"${HOME}/.local/src/touchstone-tools/builds/appimage/ts-tools-${TSVER}-x86_64.AppImage" \
+			/tmp/ts \
+			${HOST}
+	vagrant ssh -c "sudo mv /tmp/dbt2 /tmp/ts /usr/bin" ${HOST} &
+done
+wait

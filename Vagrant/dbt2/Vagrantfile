@@ -1,0 +1,201 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# Database Test 2
+Vagrant.configure("2") do |config|
+  config.vm.box = "generic/gentoo"
+
+  config.vm.define "lithium" do |subconfig|
+    subconfig.vm.hostname = "lithium"
+    subconfig.vm.network "private_network", ip: "10.2.0.2"
+
+    subconfig.vm.provider "libvirt" do |vb|
+      vb.memory = 4096
+      vb.storage :file, :size => '300G'
+    end
+
+    subconfig.vm.provision "file", source: "~/Vagrant/vagrant_rsa",
+      destination: "~/vagrant_rsa"
+    subconfig.vm.provision "file", source: "~/Vagrant/vagrant_rsa.pub",
+      destination: "~/vagrant_rsa.pub"
+
+    $bootstrap = <<-'BOOTSTRAP'
+      set -ex
+
+      echo "lithium" > /etc/hostname
+
+      echo "kernel.perf_event_paranoid=-1" >> /etc/sysctl.conf
+      echo "kernel.kptr_restrict=0" >> /etc/sysctl.conf
+      sysctl -p
+
+      sed -i -e '/USE=/d' /etc/portage/make.conf
+      cat << EOF >> /etc/portage/make.conf
+FEATURES="\${FEATURES} binpkg-request-signature"
+EMERGE_DEFAULT_OPTS="\${EMERGE_DEFAULT_OPTS} --getbinpkg"
+USE="-O2 -pipe"
+EOF
+
+      emerge --verbose dev-vcs/git eselect-repository
+      sed -i -e '/PORTDIR=/d' /etc/portage/make.conf
+      eselect repository enable gentoo
+      rm -fr /usr/portage
+      emaint sync -r gentoo 2>&1 || eselect profile set default/linux/amd64/17.1/no-multilib
+      emaint sync -r gentoo
+      emerge --oneshot sys-apps/portage
+
+      emerge --verbose xfsprogs
+      mkfs.xfs /dev/vda
+      mkdir -p /var/lib/postgresql
+      mount /dev/vda /var/lib/postgresql
+      echo "/dev/vda /var/lib/postgresql ext4 noatime 0 2" >> /etc/fstab
+
+      emerge --verbose chrony fontconfig fribidi harfbuzz perf postgresql libX11 libxcb rsync sys-fs/fuse:0 app-text/tree
+
+      emerge --verbose --config postgresql
+
+      echo "postgres ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/postgres
+      chmod 440 /etc/sudoers.d/postgres
+
+      mkdir -p /var/lib/postgresql/.ssh
+      cp -r /home/vagrant/vagrant_rsa /var/lib/postgresql/.ssh/id_rsa
+      cat /home/vagrant/vagrant_rsa.pub >> /var/lib/postgresql/.ssh/authorized_keys
+      chown -R postgres:postgres /var/lib/postgresql/.ssh
+      chmod 700 /var/lib/postgresql/.ssh
+      chmod 600 /var/lib/postgresql/.ssh/id_rsa
+      chmod 600 /var/lib/postgresql/.ssh/authorized_keys
+
+      echo "10.2.0.11 sodium" >> /etc/hosts
+      echo "10.2.0.19 potassium" >> /etc/hosts
+
+      rc-update add net.eth1 default
+      rc-update add chronyd default
+      rc-update add postgresql-16 default
+
+      rc-service chronyd start
+      rc-service postgresql-16 start
+    BOOTSTRAP
+    subconfig.vm.provision :shell, name: "bootstrap", inline: $bootstrap
+  end
+
+  config.vm.define "sodium" do |subconfig|
+    subconfig.vm.hostname = "sodium"
+    subconfig.vm.network "private_network", ip: "10.2.0.11"
+
+    subconfig.vm.provider "libvirt" do |vb|
+      vb.memory = 2048
+    end
+
+    subconfig.vm.provision "file", source: "~/Vagrant/vagrant_rsa",
+      destination: "~/vagrant_rsa"
+    subconfig.vm.provision "file", source: "~/Vagrant/vagrant_rsa.pub",
+      destination: "~/vagrant_rsa.pub"
+
+    $bootstrap = <<-'BOOTSTRAP'
+      set -ex
+
+      echo "sodium" > /etc/hostname
+
+      echo "kernel.perf_event_paranoid=-1" >> /etc/sysctl.conf
+      echo "kernel.kptr_restrict=0" >> /etc/sysctl.conf
+      sysctl -p
+
+      sed -i -e '/USE=/d' /etc/portage/make.conf
+      cat << EOF >> /etc/portage/make.conf
+FEATURES="\${FEATURES} binpkg-request-signature"
+EMERGE_DEFAULT_OPTS="\${EMERGE_DEFAULT_OPTS} --getbinpkg"
+USE="-O2 -pipe"
+EOF
+
+      emerge --verbose dev-vcs/git eselect-repository
+      sed -i -e '/PORTDIR=/d' /etc/portage/make.conf
+      eselect repository enable gentoo
+      rm -fr /usr/portage
+      emaint sync -r gentoo 2>&1 || eselect profile set default/linux/amd64/17.1/no-multilib
+      emaint sync -r gentoo
+      emerge --oneshot sys-apps/portage
+
+      emerge --verbose chrony fontconfig fribidi harfbuzz perf postgresql libX11 libxcb rsync sys-fs/fuse:0 app-text/tree
+
+      echo "postgres ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/postgres
+      chmod 440 /etc/sudoers.d/postgres
+
+      mkdir -p /var/lib/postgresql/.ssh
+      cp -r /home/vagrant/vagrant_rsa /var/lib/postgresql/.ssh/id_rsa
+      cat /home/vagrant/vagrant_rsa.pub >> /var/lib/postgresql/.ssh/authorized_keys
+      chown -R postgres:postgres /var/lib/postgresql/.ssh
+      chmod 700 /var/lib/postgresql/.ssh
+      chmod 600 /var/lib/postgresql/.ssh/id_rsa
+      chmod 600 /var/lib/postgresql/.ssh/authorized_keys
+
+      echo "10.2.0.2 lithium" >> /etc/hosts
+      echo "10.2.0.19 potassium" >> /etc/hosts
+
+      rc-update add net.eth1 default
+      rc-update add chronyd default
+
+      rc-service chronyd start
+    BOOTSTRAP
+    subconfig.vm.provision :shell, name: "bootstrap", inline: $bootstrap
+  end
+
+  config.vm.define "potassium" do |subconfig|
+    subconfig.vm.hostname = "potassium"
+    subconfig.vm.network "private_network", ip: "10.2.0.19"
+
+    subconfig.vm.provider "libvirt" do |vb|
+      vb.memory = 2048
+    end
+
+    subconfig.vm.provision "file", source: "~/Vagrant/vagrant_rsa",
+      destination: "~/vagrant_rsa"
+    subconfig.vm.provision "file", source: "~/Vagrant/vagrant_rsa.pub",
+      destination: "~/vagrant_rsa.pub"
+
+    $bootstrap = <<-'BOOTSTRAP'
+      set -ex
+
+      echo "potassium" > /etc/hostname
+
+      echo "kernel.perf_event_paranoid=-1" >> /etc/sysctl.conf
+      echo "kernel.kptr_restrict=0" >> /etc/sysctl.conf
+      sysctl -p
+
+      sed -i -e '/USE=/d' /etc/portage/make.conf
+      cat << EOF >> /etc/portage/make.conf
+FEATURES="\${FEATURES} binpkg-request-signature"
+EMERGE_DEFAULT_OPTS="\${EMERGE_DEFAULT_OPTS} --getbinpkg"
+USE="-O2 -pipe"
+EOF
+
+      emerge --verbose dev-vcs/git eselect-repository
+      sed -i -e '/PORTDIR=/d' /etc/portage/make.conf
+      eselect repository enable gentoo
+      rm -fr /usr/portage
+      emaint sync -r gentoo 2>&1 || eselect profile set default/linux/amd64/17.1/no-multilib
+      emaint sync -r gentoo
+      emerge --oneshot sys-apps/portage
+
+      emerge --verbose chrony fontconfig fribidi harfbuzz perf postgresql libX11 libxcb rsync sys-fs/fuse:0 app-text/tree
+
+      echo "postgres ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/postgres
+      chmod 440 /etc/sudoers.d/postgres
+
+      mkdir -p /var/lib/postgresql/.ssh
+      cp -r /home/vagrant/vagrant_rsa /var/lib/postgresql/.ssh/id_rsa
+      cat /home/vagrant/vagrant_rsa.pub >> /var/lib/postgresql/.ssh/authorized_keys
+      chown -R postgres:postgres /var/lib/postgresql/.ssh
+      chmod 700 /var/lib/postgresql/.ssh
+      chmod 600 /var/lib/postgresql/.ssh/id_rsa
+      chmod 600 /var/lib/postgresql/.ssh/authorized_keys
+
+      echo "10.2.0.2 lithium" >> /etc/hosts
+      echo "10.2.0.11 sodium" >> /etc/hosts
+
+      rc-update add net.eth1 default
+      rc-update add chronyd default
+
+      rc-service chronyd start
+    BOOTSTRAP
+    subconfig.vm.provision :shell, name: "bootstrap", inline: $bootstrap
+  end
+end
