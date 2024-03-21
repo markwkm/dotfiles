@@ -47,7 +47,7 @@ EOF
       mkfs.xfs /dev/vda
       mkdir -p /var/lib/postgresql
       mount /dev/vda /var/lib/postgresql
-      echo "/dev/vda /var/lib/postgresql ext4 noatime 0 2" >> /etc/fstab
+      echo "/dev/vda /var/lib/postgresql xfs noatime 0 2" >> /etc/fstab
 
       emerge --verbose chrony fontconfig fribidi harfbuzz perf postgresql libX11 libxcb rsync sys-fs/fuse:0 app-text/tree
 
